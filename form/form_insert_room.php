@@ -1,6 +1,6 @@
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php"); ?>
 
-<form action="../db/db_insert_room.php" method="post" class="items-center  column  p-5">
+<form action="<?php echo $myroot; ?>db/db_insert_room.php" method="post" class="items-center  column  p-5">
   <label class="flex p-2">
     <p>Numero de habitacion:</p>
     <input type="text" name="room_number" placeholder="Numero de habitacion">

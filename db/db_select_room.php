@@ -1,14 +1,20 @@
 <?php require("./db_connect.php"); ?>
 <?php
-$sql = "Select * FROM `004_room`";
-$result = mysqli_query($conn, $sql);
-$rooms = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// echo "<b>ROOM ID</b> | <b>ROOM NUMBER</b> | <b>CATEGORY ID</b> <br>";
-// foreach ($rooms as $room) {
-//   echo $room["room_id"] . " |\n " . $room["room_number"] . " | " . $room["category_id"] . "<br>";
-// }
 
-echo json_encode($rooms, JSON_PRETTY_PRINT);
+
+$sql = "SELECT * FROM `004_room` AS room WHERE 1=1 ";
+
+if (isset($_GET["category"])) {
+  $sql .= 'AND room.category_id = $_GET["category"]';
+}
+
+
+
+$result = mysqli_query($conn, $sql);
+
+$rooms = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// 
+echo json_encode($rooms);
 
 mysqli_close($conn);
 ?>
