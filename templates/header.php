@@ -1,7 +1,8 @@
 <?php
 $myroot = "/student004/hotel/";
+$form_label = "flex p-2 justify-between w-[100%] items-center rounded-lg";
+$form = "flex items-center flex-col grow p-5";
 ?>
-
 <!-- server: remotehost.es -->
 <!-- hostname: remotehost.es -->
 <!-- database: dweshoteldb -->
@@ -19,34 +20,34 @@ $myroot = "/student004/hotel/";
   <link rel="icon" href="<?php echo $myroot; ?>img/aurelia-grand-hotel-logo.png" type="image/png" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
   </script>
-
-  <style>
-    .column {
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
-
 </head>
 
+<style>
+  input[type="text"] {
+    outline: 2px solid purple;
+    padding: 4px;
+    border-radius: 10px;
+  }
+</style>
+
 <body class="bg-purple-100 flex flex-col min-h-screen">
-  <nav class="bg-black flex justify-between items-center p-5 sticky shadow-lg shadow-purple-400">
+  <nav class="bg-black flex justify-between items-center p-5 sticky shadow-lg shadow-purple-400 z-3">
     <img src="<?php echo $myroot; ?>img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
     <a href="<?php echo $myroot ?>" class="text-white">Aurelia Grand Hotel</a>
     <div class="text-white ">
-      <button class="cursor-pointer ring-lg p-2 ring-purple-600">Log In</button>
-      <button class="cursor-pointer bg-purple-600 p-2 rounded-lg">Sign up</button>
+      <button class="cursor-pointer rounded-lg ring-1 p-2 ring-purple-600 hover:ring-purple-500">Log In</button>
+      <button class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</button>
     </div>
   </nav>
 
-  <nav class="sticky bg-white flex">
-    <details class="column p-3">
+  <nav class="sticky bg-purple-50 flex gap-10">
+    <details class="column p-3 hover:cursor-pointer ">
       <summary>Rooms</summary>
       <a href="<?php echo $myroot . "form/form_select_room.php" ?>" class="block">Select</a>
       <a href="<?php echo $myroot . "form/form_insert_room.php" ?> " class="block">Insert</a>
-      <a href="#" class="block">Modify</a>
+      <a href="<?php echo $myroot . "form/form_modify_room.php" ?>" class="block">Modify</a>
     </details>
-    <details class="column p-3">
+    <details class="column p-3 hover:cursor-pointer">
       <summary>Customers</summary>
       <a href="" class="block">Select</a>
       <a href="#" class="block">Add</a>

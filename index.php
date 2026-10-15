@@ -1,6 +1,6 @@
 <?php require(__DIR__ . "/templates/header.php"); ?>
 
-<form action="<?php echo $myroot . "db/db_room_availability.php " ?> " method="post" class="flex flex-col grow items-center">
+<form action="<?php echo $myroot . "db/db_room_availability.php " ?> " method="get" class="flex flex-col grow items-center">
 
   <label class="flex justify-center p-5">
     <p class="pr-5">Entrada al hotel: </p>
