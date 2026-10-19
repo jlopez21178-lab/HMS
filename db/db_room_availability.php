@@ -25,7 +25,7 @@ $divider = "divide-x-2 divide-dashed divide-purple-300";
 echo "<table class='grow'> <thead class='h-fit p-2'><tr class='$divider divide-y-2'><th>City</th><th>Category</th><th></th></tr></thead><tbody>";
 // json_encode($res, JSON_PRETTY_PRINT)
 foreach ($result as $res)
-  echo "<tr class='text-center $divider'><td>" . $res["city"] . "</td><td>" . $res["name"] . "</td><td><button class='cursor-pointer bg-purple-500 rounded-lg'>Reservar</button></td></tr>";
+  echo "<tr class='text-center $divider divide-y-2'><td>" . $res["city"] . "</td><td>" . $res["name"] . "</td><td><button class='cursor-pointer bg-purple-500 rounded-lg'>Reservar</button></td></tr>";
 
 
 echo "</tbody></table>";

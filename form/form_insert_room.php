@@ -2,7 +2,7 @@
 
 
 
-<form action="<?php echo $myroot; ?>db/db_insert_room.php" method="post" class="<?php echo $form ?>">
+<form action="<?php echo $myroot; ?>db/db_insert_room.php" method="get" class="<?php echo $form ?>">
   <label class="<?php echo $form_label ?>">
     <p>Numero de habitacion:</p>
     <input type="text" name="room_number" placeholder="Numero de habitacion">

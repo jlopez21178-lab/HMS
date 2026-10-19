@@ -1,14 +1,10 @@
 <?php
+// $myroot = $_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/";
 $myroot = "/student004/hotel/";
 $form_label = "flex p-2 justify-between w-[100%] items-center rounded-lg";
 $form = "flex items-center flex-col grow p-5";
 ?>
-<!-- server: remotehost.es -->
-<!-- hostname: remotehost.es -->
-<!-- database: dweshoteldb -->
-<!-- user: student004 -->
-<!-- password: DWES20261014jordi2044! -->
-<!-- ftp -->
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -5,10 +5,10 @@
 
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $hotel_id = $_POST["hotel_id"];
-  $room_number = $_POST["room_number"];
-  $category_id = $_POST["category_id"];
+if ($_SERVER["REQUEST_METHOD"] === "get") {
+  $hotel_id = $_GET["hotel_id"];
+  $room_number = $_GET["room_number"];
+  $category_id = $_GET["category_id"];
 
   $sql = "INSERT INTO `004_room`(hotel_id, room_number, category_id) VALUES ('$hotel_id', '$room_number', '$category_id')";
 
