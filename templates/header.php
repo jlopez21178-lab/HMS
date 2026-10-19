@@ -19,6 +19,12 @@ $form = "flex items-center flex-col grow p-5";
 </head>
 
 <style>
+  * {
+    /* padding: 0; */
+    /* margin: 0; */
+    box-sizing: border-box;
+  }
+
   input[type="text"] {
     outline: 2px solid purple;
     padding: 4px;
@@ -36,14 +42,14 @@ $form = "flex items-center flex-col grow p-5";
     </div>
   </nav>
 
-  <nav class="sticky bg-purple-50 flex gap-10">
-    <details class="column p-3 hover:cursor-pointer ">
+  <nav class="sticky bg-purple-50 flex gap-10 p-5">
+    <details class="column hover:cursor-pointer ">
       <summary>Rooms</summary>
       <a href="<?php echo $myroot . "form/form_select_room.php" ?>" class="block">Select</a>
       <a href="<?php echo $myroot . "form/form_insert_room.php" ?> " class="block">Insert</a>
       <a href="<?php echo $myroot . "form/form_modify_room.php" ?>" class="block">Modify</a>
     </details>
-    <details class="column p-3 hover:cursor-pointer">
+    <details class="column hover:cursor-pointer">
       <summary>Customers</summary>
       <a href="" class="block">Select</a>
       <a href="#" class="block">Add</a>

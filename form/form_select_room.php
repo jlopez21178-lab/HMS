@@ -1,10 +1,14 @@
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php") ?>
 
 <form id="filter-form" class="bg-pink-300 flex justify-between p-4 items-center">
-  <label>
+  <label class="flex">
+    <p>Ciudad: </p>
     <select name="city">
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_get_hotel.php"); ?>
     </select>
+  </label>
+  <label class="flex">
+    <p>Categoria: </p>
   </label>
 
   <input type="submit" id="filter" value="Filtrar" class="p-1 rounded-lg bg-zinc-400" />

@@ -1,20 +1,29 @@
 <?php require(__DIR__ . "/templates/header.php"); ?>
+<style>
+  .landscape {
+    background: url("<?php echo $myroot ?>img/hotel-landscape.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
 
-<form action="<?php echo $myroot . "db/db_room_availability.php " ?> " method="get" class="flex flex-col grow items-center">
+<!-- <div class="grow"> -->
+<section class="landscape grow flex justify-center  p-20">
+  <form action="<?php echo $myroot . "db/db_room_availability.php " ?> " method="get" class="flex flex-col  items-center backdrop-blur-sm rounded-xl h-fit w-fit border-1 border-purple-200 gap-10 p-10">
+    <label class="flex justify-center text-white">
+      <p class="pr-5">Entrada al hotel: </p>
+      <input type="date" name="date_in" id="date_in" />
+    </label>
 
-  <label class="flex justify-center p-5">
-    <p class="pr-5">Entrada al hotel: </p>
-    <input type="date" name="date_in" id="date_in" />
-  </label>
+    <label class="flex justify-center text-white ">
+      <p class="pr-5">Salida del hotel:</p>
+      <input type="date" name="date_out" id="date_out" />
+    </label>
 
-  <label class="flex justify-center p-5">
-    <p class="pr-5">Salida del hotel:</p>
-    <input type="date" name="date_out" id="date_out" />
-  </label>
+    <input type="submit" value="Reservar" class="p-3 ring-lg ring-purple-600 bg-purple-600 cursor-pointer w-fit rounded-lg">
+  </form>
+</section>
 
-  <input type="submit" value="Reservar" class="p-3 ring-lg ring-purple-600 bg-purple-600 cursor-pointer w-fit rounded-lg">
-
-  <div class="grow p-6"></div>
-</form>
-
-<?php require_once(__DIR__ . "/templates/footer.php") ?>
+<!-- </div> -->
+<?php require(__DIR__ . "/templates/footer.php") ?>
