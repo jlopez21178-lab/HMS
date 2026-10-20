@@ -15,8 +15,10 @@
   </label>
 
   <label class="<?php echo $form_label; ?>">
-    <p>Hotel id:</p>
-    <input type="text" name="hotel_id" id="hotel-id">
+    <p>Hotel:</p>
+    <select name="city">
+      <?php include($myroot . "db/db_get_hotel.php") ?>
+    </select>
   </label>
 
   <label class="<?php echo $form_label; ?>">

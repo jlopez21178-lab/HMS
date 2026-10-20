@@ -20,6 +20,7 @@ if (isset($_GET["category"]) && $_GET["category"] != "") {
 $res = mysqli_query($conn, $sql);
 
 $rooms = mysqli_fetch_all($res, MYSQLI_ASSOC);
+mysqli_close($conn);
 
 if (count($rooms) > 0) {
 
@@ -57,5 +58,3 @@ if (count($rooms) > 0) {
 } else {
   echo "No se han encontrado resultados";
 }
-
-mysqli_close($conn);

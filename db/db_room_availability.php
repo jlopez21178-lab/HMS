@@ -1,7 +1,9 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php") ?>
-
-<?php include(__DIR__ . "/db_connect.php"); ?>
 <?php
+
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php");
+
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+
 
 $date_in = $_GET["date_in"];
 $date_out = $_GET["date_out"];
@@ -12,9 +14,9 @@ $sql = "SELECT hotel.hotel_id,hotel.city, category.category_id, category.name FR
         inner join 004_category as category 
           on category.category_id = room.category_id
         WHERE `room_id` NOT IN (SELECT room_id 
-                              FROM `004_reservation` AS res 
-                              WHERE res.date_in < '$date_out' AND res.date_out > '$date_in')
-          Group BY hotel.hotel_id, room.category_id;";
+                                FROM `004_reservation` AS res 
+                                WHERE res.date_in < '$date_out' AND res.date_out > '$date_in')
+        Group BY hotel.hotel_id, room.category_id;";
 
 $query = mysqli_query($conn, $sql);
 
@@ -28,7 +30,7 @@ foreach ($result as $res) {
 
   $room_img = $myroot . "img/room/hotel-" . $res["hotel_id"] . "-category-" . $res["category_id"];
 
-  echo '<div class="flex rounded-lg bg-white border-black border-1 justify-between w-[70vw]">
+  echo '<div class="flex rounded-lg  border-black border-1 justify-between w-[70vw] bg-purple-500/10 backdrop-blur-lg">
           <img class="rounded-lg max-h-[200px] aspect-3/2" 
               src="' . $room_img .  '" onerror= "' . $room_default . '">
           <div class=" p-3 w-full flex flex-col justify-around">
@@ -43,7 +45,9 @@ echo "</section>";
 
 
 mysqli_close($conn);
+
+
+
+
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php")
 ?>
-
-
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php") ?>

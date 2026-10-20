@@ -9,6 +9,9 @@
   </label>
   <label class="flex">
     <p>Categoria: </p>
+    <select name="category">
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_get_category.php"); ?>
+    </select>
   </label>
 
   <input type="submit" id="filter" value="Filtrar" class="p-1 rounded-lg bg-zinc-400" />

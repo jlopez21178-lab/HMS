@@ -1,11 +1,11 @@
 <?php
 
-//  server: remotehost.es 
-//  hostname: remotehost.es
-//  database: dweshoteldb
-//  user: student004 
-//  password: DWES20261014jordi2044!
-// ftp -> DWES20261014jordi129!
+//  server:     remotehost.es 
+//  hostname:   remotehost.es
+//  database:   dweshoteldb
+//  user:       student004 
+//  password:   DWES20261014jordi2044!
+// ftp:         DWES20261014jordi129!
 
 
 $local = true;

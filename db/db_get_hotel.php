@@ -6,8 +6,8 @@ $city = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 echo "<option></option>";
 
-foreach($city as $cy){
-  echo "<option>". $cy["city"] . "</option>";
+foreach ($city as $cy) {
+  echo "<option " . (($cy["city"] == $_GET["city"] && $_GET["city"] != "") ? "selected" : "") . ">" . $cy["city"] . "</option>";
 };
 
 mysqli_close($conn);
