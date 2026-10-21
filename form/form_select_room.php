@@ -4,13 +4,15 @@
   <label class="flex">
     <p>Ciudad: </p>
     <select name="city">
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_get_hotel.php"); ?>
+      <option></option>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_hotel.php"); ?>
     </select>
   </label>
   <label class="flex">
     <p>Categoria: </p>
-    <select name="category">
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_get_category.php"); ?>
+    <select name="category_name">
+      <option></option>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_category.php"); ?>
     </select>
   </label>
 
@@ -19,5 +21,7 @@
 <div class="m-3 grow">
   <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_select_room_list.php"); ?>
 </div>
+
+
 
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>

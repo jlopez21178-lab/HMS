@@ -4,7 +4,6 @@ $sql = "SELECT city from `004_hotel`";
 $res = mysqli_query($conn, $sql);
 $city = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
-echo "<option></option>";
 
 foreach ($city as $cy) {
   echo "<option " . (($cy["city"] == $_GET["city"] && $_GET["city"] != "") ? "selected" : "") . ">" . $cy["city"] . "</option>";

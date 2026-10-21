@@ -3,6 +3,8 @@
 $myroot = "/student004/hotel/";
 $form_label = "flex p-2 justify-between w-[100%] items-center rounded-lg";
 $form = "flex items-center flex-col grow p-5";
+
+
 ?>
 
 
@@ -49,10 +51,16 @@ $form = "flex items-center flex-col grow p-5";
       <a href="<?php echo $myroot . "form/form_insert_room.php" ?> " class="block">Insert</a>
       <a href="<?php echo $myroot . "form/form_modify_room.php" ?>" class="block">Modify</a>
     </details>
-    <!-- <details class="column hover:cursor-pointer">
+    <details class="column hover:cursor-pointer">
       <summary>Customers</summary>
-      <a href="" class="block">Select</a>
-      <a href="#" class="block">Add</a>
-      <a href="#" class="block">Modify</a>
-    </details> -->
+      <a href="<?php echo $myroot . "form/form_select_customer.php" ?>" class="block">Select</a>
+      <a href="<?php echo $myroot . "form/form_insert_customer.php" ?> " class="block">Insert</a>
+      <a href="<?php echo $myroot . "form/form_modify_customer.php" ?>" class="block">Modify</a>
+    </details>
+    <details class="column hover:cursor-pointer">
+      <summary>Reservations</summary>
+      <a href="<?php echo $myroot . "form/form_select_reservation.php" ?>" class="block">Select</a>
+      <a href="<?php echo $myroot . "form/form_insert_reservation.php" ?> " class="block">Insert</a>
+      <a href="<?php echo $myroot . "form/form_modify_reservation.php" ?>" class="block">Modify</a>
+    </details>
   </nav>

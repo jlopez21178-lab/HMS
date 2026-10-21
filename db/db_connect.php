@@ -8,14 +8,9 @@
 // ftp:         DWES20261014jordi129!
 
 
-$local = true;
-// $local = false;
 
-if ($local) {
-  $conn = mysqli_connect("localhost", "root", "", "hms", 3307);
-} else {
-  $conn = mysqli_connect("remotehost.es", "student004", "DWES20261014jordi2044!", "dweshoteldb");
-}
+$conn = mysqli_connect("localhost", "root", "", "hms", 3307);
+// $conn = mysqli_connect("remotehost.es", "dwesuser1234", "DWES20261014ftp33!", "dweshoteldb");
 
 if (!$conn)
   echo ("Algo ha salido mal");
