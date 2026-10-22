@@ -28,7 +28,6 @@ echo "<section class='grow m-5 flex flex-col justify-center items-center gap-10'
 
 foreach ($rooms as $room)  show_room($room);
 
-
 echo "</section>";
 
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php");

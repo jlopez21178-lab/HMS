@@ -1,18 +1,18 @@
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php"); ?>
 
 
-<form id="form-room-info" class="<?php echo $form ?> m-5 divide-purple-300 divide-dashed divide-y-3">
-  <label class="<?php echo $form_label; ?>">
+<form id="form-room-info" class="<?= $form ?> m-5 divide-purple-300 divide-dashed divide-y-3">
+  <label class="<?= $form_label ?>">
     <p>Room number:</p>
-    <input type="text" name="room_number" id="room-number" value="<?php echo $_GET["room_number"] ?>">
+    <input type="text" name="room_number" id="room-number" value="<?= $_GET["room_number"] ?>">
   </label>
 
-  <label class="<?php echo $form_label; ?>">
+  <label class="<?= $form_label ?>">
     <p>Hotel:</p>
-    <p> <?php echo $_GET["city"] ?></p>
+    <p> <?= $_GET["city"] ?></p>
   </label>
 
-  <label class="<?php echo $form_label; ?>">
+  <label class="<?= $form_label ?>">
     <p>Category:</p>
     <select name="category">
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_category.php") ?>
@@ -32,7 +32,7 @@
   deleteBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    window.location.href = "/student004/hotel/db/db_delete_room.php?room_id=" + <?php echo $_GET["room_id"] ?>;
+    window.location.href = "/student004/hotel/db/db_delete_room.php?room_id=" + <?= $_GET["room_id"] ?>;
   })
 </script>
 
