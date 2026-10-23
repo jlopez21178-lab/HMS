@@ -51,7 +51,6 @@ $form = "flex items-center flex-col grow p-5";
         <summary>Rooms</summary>
         <a href="<?php echo $myroot . "form/form_select_room.php" ?>" class="block">Select</a>
         <a href="<?php echo $myroot . "form/form_insert_room.php" ?> " class="block">Insert</a>
-        <a href="<?php echo $myroot . "form/form_modify_room.php" ?>" class="block">Modify</a>
       </details>
       <details class="column hover:cursor-pointer">
         <summary>Customers</summary>
@@ -67,4 +66,4 @@ $form = "flex items-center flex-col grow p-5";
       </details>
     </nav>
   </header>
-  <main class="grow">
+  <main class="grow flex flex-col">

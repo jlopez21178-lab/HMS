@@ -8,7 +8,7 @@
   }
 </style>
 
-<section class="landscape grow flex justify-center  p-20">
+<section class="landscape grow flex justify-center p-20">
   <form action="<?php echo $myroot . "db/db_room_availability.php " ?> " method="get" class="flex flex-col  items-center backdrop-blur-sm rounded-xl h-fit w-fit border-1 border-purple-200 bg-purple-500/20 gap-10 p-10">
     <label class="flex justify-center text-white">
       <p class="pr-5">Entrada al hotel: </p>
