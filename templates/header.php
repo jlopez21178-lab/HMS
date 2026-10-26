@@ -35,9 +35,8 @@ $form = "flex items-center flex-col grow p-5";
 </style>
 
 <body class="bg-purple-100 flex flex-col min-h-screen">
-  <header>
-
-    <nav class="bg-black flex justify-between items-center p-5 sticky shadow-lg shadow-purple-400 z-3">
+  <header class="sticky top-0">
+    <nav class="bg-black flex justify-between items-center p-5  shadow-lg shadow-purple-400 z-3">
       <img src="<?php echo $myroot; ?>img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
       <a href="<?php echo $myroot ?>" class="text-white">Aurelia Grand Hotel</a>
       <div class="text-white ">
@@ -45,23 +44,24 @@ $form = "flex items-center flex-col grow p-5";
         <button class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</button>
       </div>
     </nav>
-
-    <aside class="bg-purple-50 flex flex-col p-5 w-auto h-screen fixed">
-      <details class="column hover:cursor-pointer ">
-        <summary>Rooms</summary>
-        <a href="<?php echo $myroot . "form/room_list.php" ?>" class="block">List</a>
-        <a href="<?php echo $myroot . "form/room_add.php" ?> " class="block">Add room</a>
-      </details>
-      <details class="column hover:cursor-pointer">
-        <summary>Customers</summary>
-        <a href="<?php echo $myroot . "form/customer_list.php" ?>" class="block">List</a>
-        <a href="<?php echo $myroot . "form/customer_add.php" ?> " class="block">Add client</a>
-      </details>
-      <details class="column hover:cursor-pointer">
-        <summary>Reservations</summary>
-        <a href="<?php echo $myroot . "form/reservation_list.php" ?>" class="block">List</a>
-        <a href="<?php echo $myroot . "form/reservation_create.php" ?> " class="block">New reservation</a>
-      </details>
-    </aside>
   </header>
-  <main class="grow flex flex-col">
+  <main class="grow flex ">
+    <div>
+      <aside class="bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-full max-h-screen ">
+        <details class="column hover:cursor-pointer ">
+          <summary>Rooms</summary>
+          <a href="<?php echo $myroot . "form/room_list.php" ?>" class="block">List</a>
+          <a href="<?php echo $myroot . "form/room_add.php" ?> " class="block">Add room</a>
+        </details>
+        <details class="column hover:cursor-pointer">
+          <summary>Customers</summary>
+          <a href="<?php echo $myroot . "form/customer_list.php" ?>" class="block">List</a>
+          <a href="<?php echo $myroot . "form/customer_add.php" ?> " class="block">Add client</a>
+        </details>
+        <details class="column hover:cursor-pointer">
+          <summary>Reservations</summary>
+          <a href="<?php echo $myroot . "form/reservation_list.php" ?>" class="block">List</a>
+          <a href="<?php echo $myroot . "form/reservation_create.php" ?> " class="block">New reservation</a>
+        </details>
+      </aside>
+    </div>

@@ -5,7 +5,7 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
 ?>
 
 
-<div class="p-5 ">
+<div class="p-5 grow">
   <form class="flex flex-col gap-5 p-5 border-1 border-purple-200 rounded-lg">
     <div class="flex gap-5">
       <button class="<?= $buttonStyle ?> bg-fuchsia-900/50 hover:bg-fuchsia-900/60">Entradas de hoy</button>
@@ -42,7 +42,26 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
     </div>
   </form>
   <div class="pt-5">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_list.php"); ?></div>
+    <table class="w-full table-auto">
+
+      <thead>
+        <tr class="<?= $row ?>">
+          <th>Reservation</th>
+          <th>Customer</th>
+          <th>Room id</th>
+          <th>Room number</th>
+          <th>Date in</th>
+          <th>Date out</th>
+          <th>Days</th>
+          <th>Category</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_list.php"); ?>
+  </div>
+  </tbody>
+  </table>
 </div>
 
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>
