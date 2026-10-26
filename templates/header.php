@@ -46,24 +46,22 @@ $form = "flex items-center flex-col grow p-5";
       </div>
     </nav>
 
-    <nav class="sticky bg-purple-50 flex gap-10 p-5 left">
+    <aside class="bg-purple-50 flex flex-col p-5 w-auto h-screen fixed">
       <details class="column hover:cursor-pointer ">
         <summary>Rooms</summary>
-        <a href="<?php echo $myroot . "form/form_select_room.php" ?>" class="block">Select</a>
-        <a href="<?php echo $myroot . "form/form_insert_room.php" ?> " class="block">Insert</a>
+        <a href="<?php echo $myroot . "form/room_list.php" ?>" class="block">List</a>
+        <a href="<?php echo $myroot . "form/room_add.php" ?> " class="block">Add room</a>
       </details>
       <details class="column hover:cursor-pointer">
         <summary>Customers</summary>
-        <a href="<?php echo $myroot . "form/form_select_customer.php" ?>" class="block">Select</a>
-        <a href="<?php echo $myroot . "form/form_insert_customer.php" ?> " class="block">Insert</a>
-        <a href="<?php echo $myroot . "form/form_modify_customer.php" ?>" class="block">Modify</a>
+        <a href="<?php echo $myroot . "form/customer_list.php" ?>" class="block">List</a>
+        <a href="<?php echo $myroot . "form/customer_add.php" ?> " class="block">Add client</a>
       </details>
       <details class="column hover:cursor-pointer">
         <summary>Reservations</summary>
-        <a href="<?php echo $myroot . "form/form_select_reservation.php" ?>" class="block">Select</a>
-        <a href="<?php echo $myroot . "form/form_insert_reservation.php" ?> " class="block">Insert</a>
-        <a href="<?php echo $myroot . "form/form_modify_reservation.php" ?>" class="block">Modify</a>
+        <a href="<?php echo $myroot . "form/reservation_list.php" ?>" class="block">List</a>
+        <a href="<?php echo $myroot . "form/reservation_create.php" ?> " class="block">New reservation</a>
       </details>
-    </nav>
+    </aside>
   </header>
   <main class="grow flex flex-col">

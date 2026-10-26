@@ -42,7 +42,7 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
     </div>
   </form>
   <div class="pt-5">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_select_reservation_list.php"); ?></div>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_list.php"); ?></div>
 </div>
 
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>

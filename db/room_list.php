@@ -13,8 +13,8 @@ if (isset($_GET["city"]) && $_GET["city"] != "") {
   $sql .= " AND hotel.city = '" . $_GET["city"] . "'";
 }
 
-if (isset($_GET["category_name"]) && $_GET["category_name"] != "") {
-  $sql .= " AND category.category_name = '" . $_GET["category_name"] . "'";
+if (isset($_GET["code"]) && $_GET["code"] != "") {
+  $sql .= " AND category.code = '" . $_GET["code"] . "'";
 }
 
 $res = mysqli_query($conn, $sql);
@@ -42,7 +42,7 @@ if (count($rooms) > 0) { ?>
           <td><?php echo $room["room_id"] ?></td>
           <td><?php echo $room["city"] ?></td>
           <td><?php echo $room["room_number"] ?></td>
-          <td><?php echo $room["category_name"] ?></td>
+          <td><?php echo $room["code"] ?></td>
           <td class='p-2 m-2'>
             <button class='p-2 cursor-pointer bg-purple-200 hover:bg-purple-500/40 rounded-lg' onclick='openModifyForm(<?= json_encode($room) ?> )'>Modify</button>
           </td>

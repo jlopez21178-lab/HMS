@@ -2,10 +2,14 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
-$sql = "SELECT * 
+$sql = "SELECT *, 
+        (SELECT code FROM `004_category` WHERE category_id = res.category_given) AS 'cat_code_given', 
+        (SELECT code FROM `004_category` WHERE category_id = res.category_charged) AS 'cat_code_charged'
         FROM `004_reservation` AS res
-        INNER JOIN `004_customer` AS cus
-          ON res.customer_id = cus.customer_id 
+        JOIN `004_customer` AS cus
+          ON res.customer_id = cus.customer_id
+        JOIN `004_room` AS room
+          ON res.room_id = room.room_id
         WHERE 1";
 
 if (isset($_GET["date_in"]) && $_GET["date_in"] != "") {
@@ -17,7 +21,11 @@ if (isset($_GET["date_out"]) && $_GET["date_out"] != "") {
 }
 
 if (isset($_GET["category_given"]) && $_GET["category_given"] != "") {
-  $sql .= ' AND res.date_in = "' . $_GET["category_given"] . '"';
+  $sql .= ' AND res.category_given = "' . $_GET["category_given"] . '"';
+}
+
+if (isset($_GET["category_charged"]) && $_GET["category_charged"] != "") {
+  $sql .= ' AND res.category_charged = "' . $_GET["category_charged"] . '"';
 }
 
 $result = mysqli_query($conn, $sql);
@@ -32,7 +40,7 @@ $row = "divide-x-1 divide-purple-300 border-b-1 border-purple-300";
 
   <thead>
     <tr class="<?= $row ?>">
-      <th>Reservation number</th>
+      <th>Reservation</th>
       <th>Customer</th>
       <th>Room id</th>
       <th>Room number</th>
@@ -49,17 +57,22 @@ $row = "divide-x-1 divide-purple-300 border-b-1 border-purple-300";
       $date_in = new DateTime($res["date_in"]);
       $date_out = new DateTime($res["date_out"]);
       $days = $date_in->diff($date_out);
+
+      // echo json_decode($res);
     ?>
 
       <tr class="<?= $row ?> text-center hover:bg-fuchsia-900/20 hover:divide-purple-900/30">
-        <td><?= $res["reservation_number"] ?></td>
+        <td><?= $res["reservation_number"] ?>
+          <div>
+          </div>
+        </td>
         <td><?= $res["full_name"]  ?></td>
         <td><?= ((isset($res["room_id"])) ? $res["room_id"] : "") ?></td>
         <td></td>
         <td><?= $res["date_in"] ?></td>
         <td><?= $res["date_out"] ?></td>
         <td><?= $days->days ?></td>
-        <td><?= $res["category_given"] . " / " . $res["category_charged"] ?></td>
+        <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
         <td></td>
       </tr>
     <?php } ?>

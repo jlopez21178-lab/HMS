@@ -20,9 +20,12 @@
 </head>
 
 <body>
-  <div class="flex  justify-center grow h-screen w-screen items-center bg-purple-100 p-3">
-    <p>Upss... La pagina aun no esta lista, vuelva aqui más adelante</p>
-    <i class="ph ph-spinner animate-spin "></i>
+  <div class="flex flex-col justify-center grow h-screen w-screen items-center bg-purple-100">
+    <div class="flex  justify-center items-center p-5">
+      <p>Upss... The page is currently under construction, come back later</p>
+      <i class="ph ph-spinner animate-spin "></i>
+    </div>
+    <a href="/student004/hotel" class="p-5 bg-purple-900/30 rounded-lg hover:bg-purple-900/40">Go back to home</a>
   </div>
 </body>
 

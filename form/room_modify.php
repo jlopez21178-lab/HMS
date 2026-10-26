@@ -14,8 +14,11 @@
 
   <label class="<?= $form_label ?>">
     <p>Category:</p>
-    <select name="category">
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_category.php") ?>
+    <select name="code">
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+      foreach ($category as $cat) { ?>
+        <option <?= ($cat["code"] == $_GET["code"] ? "selected" : "") ?>><?= $cat["code"] ?></option>
+      <?php } ?>
     </select>
   </label>
 
@@ -32,7 +35,7 @@
   deleteBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    window.location.href = "/student004/hotel/db/db_delete_room.php?room_id=" + <?= $_GET["room_id"] ?>;
+    window.location.href = "/student004/hotel/db/room_delete.php?room_id=" + <?= $_GET["room_id"] ?>;
   })
 </script>
 
