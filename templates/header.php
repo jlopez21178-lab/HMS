@@ -47,7 +47,7 @@ $form = "flex items-center flex-col grow p-5";
   </header>
   <main class="grow flex ">
     <div>
-      <aside class="bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-full max-h-screen ">
+      <aside class="bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-full min-w-max ">
         <details class="column hover:cursor-pointer ">
           <summary>Rooms</summary>
           <a href="<?php echo $myroot . "form/room_list.php" ?>" class="block">List</a>

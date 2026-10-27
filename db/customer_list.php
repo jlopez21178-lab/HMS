@@ -2,12 +2,12 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_customer.php");
 
-$sql = 'SELECT * FROM `004_customer` AS cus WHERE 1';
+$sql = "SELECT * FROM `004_customer` AS cus WHERE 1";
 
 if (isset($_GET["customer_info"]) && $_GET["customer_info"] != "") {
-  $info = strtolower($_GET["customer_info"]);
-  $sql .= ' AND (LOWER(cus.full_name) LIKE "%' . $info . '%"  
-            OR LOWER(cus.email) LIKE "%' . $info . '%")';
+  $info = $_GET["customer_info"];
+  $sql .= ' AND (cus.full_name LIKE "%' . $info . '%" 
+            OR (cus.email) LIKE "%' . $info . '%")';
 }
 
 $result = mysqli_query($conn, $sql);

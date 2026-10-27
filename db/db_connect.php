@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `004_hotel`;
 
 
 
-$conn = mysqli_connect("localhost", "root", "", "hms", 3307);
-// $conn = mysqli_connect("remotehost.es", "dwesuser1234", "DWES20261014ftp33!", "dweshoteldb");
+// $conn = mysqli_connect("localhost", "root", "", "hms", 3307);
+$conn = mysqli_connect("remotehost.es", "dwesuser1234", "DWES20261014ftp33!", "dweshoteldb");
 
 if (!$conn)
   echo ("Algo ha salido mal");

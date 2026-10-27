@@ -2,10 +2,10 @@
 
 
 <div class="p-5 grow">
-  <form class="flex justify-between items-center">
+  <form action="" class="flex justify-between items-center">
     <label class="flex gap-5 items-center">
       <p>Searcher:</p>
-      <input type="text" name="client_info" placeholder="Name, email...">
+      <input type="text" name="customer_info" placeholder="Name, email...">
     </label>
 
     <input type="submit" value="Search">
@@ -18,6 +18,7 @@
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
