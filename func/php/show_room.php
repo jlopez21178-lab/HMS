@@ -1,10 +1,9 @@
 <?php
-$room_default =  "this.onerror=null; this.src='/student004/hotel/img/room/default.jpg'";
 
 function show_room($room)
 {
-  global $room_default;
 
+  $room_default =  "this.onerror=null; this.src='/student004/hotel/img/room/default.jpg'";
   $room_img = "/student004/hotel/img/room/hotel-" . $room["hotel_id"] . "-category-" . $room["category_id"];
 ?>
 

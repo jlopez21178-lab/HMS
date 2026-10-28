@@ -37,35 +37,35 @@ $row = "divide-x-1 divide-purple-300 border-b-1 border-purple-300 ,m-2";
 
 
 
-    <?php foreach ($reservation as $res) {
-      // calcular total dias
-      $date_in = new DateTime($res["date_in"]);
-      $date_out = new DateTime($res["date_out"]);
-      $days = $date_in->diff($date_out);
+<?php foreach ($reservation as $res) {
+  // calcular total dias
+  $date_in = new DateTime($res["date_in"]);
+  $date_out = new DateTime($res["date_out"]);
+  $days = $date_in->diff($date_out);
 
-      $statusStyle = "rounded-lg ";
-      $statusStyle .= match ($res["status"]) {
-        'pendent' => "bg-slate-800/50",
-        'ongoing' => "bg-green-300/70",
-        'finished' => "bg-olive-500/30",
-        'eliminated' => "bg-red-500/30"
-      };
- 
-    ?>
+  $statusStyle = "rounded-lg ";
+  $statusStyle .= match ($res["status"]) {
+    'pendent' => "bg-slate-800/50",
+    'ongoing' => "bg-green-300/70",
+    'finished' => "bg-olive-500/30",
+    'eliminated' => "bg-red-500/30"
+  };
 
-      <tr class="<?= $row ?> text-center hover:bg-fuchsia-900/20 hover:divide-purple-900/30">
-        <td class="p-3"><?= $res["reservation_number"] ?>
-          <div class="<?= $statusStyle ?>">
-            <?= $res["status"] ?>
-          </div>
-        </td>
-        <td><?= $res["full_name"]  ?></td>
-        <td><?= ((isset($res["room_id"])) ? $res["room_id"] : "") ?></td>
-        <td></td>
-        <td><?= $res["date_in"] ?></td>
-        <td><?= $res["date_out"] ?></td>
-        <td><?= $days->days ?></td>
-        <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
-        <td></td>
-      </tr>
-    <?php } ?>
+?>
+
+  <tr class="<?= $table_row_data ?>">
+    <td><?= $res["reservation_number"] ?>
+      <div class="<?= $statusStyle ?>">
+        <?= $res["status"] ?>
+      </div>
+    </td>
+    <td><?= $res["full_name"]  ?></td>
+    <td><?= ((isset($res["room_id"])) ? $res["room_id"] : "") ?></td>
+    <td></td>
+    <td><?= $res["date_in"] ?></td>
+    <td><?= $res["date_out"] ?></td>
+    <td><?= $days->days ?></td>
+    <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
+    <td></td>
+  </tr>
+<?php } ?>

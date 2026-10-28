@@ -4,8 +4,8 @@ $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center"
 ?>
 
-<div class="p-5 grow flex justify-center ">
-  <form class="[&>div]:mt-5 max-w-[50vw] grow">
+<div class="p-5 grow flex  justify-center ">
+  <form class="[&>div]:mt-5 max-w-[50vw] grow relative">
     <h1 class="text-3xl">Customer record - <?= $_GET["customer_id"] ?></h1>
     <div>
       <h1 class="<?= $title ?>">Personal info</h1>
@@ -55,10 +55,15 @@ $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap
       </div>
     </div>
     <div>
-      <h1 class="<?= $title ?>">Record reservation</h1>
+      <h1 class="<?= $title ?>">History reservation</h1>
       <div class="<?= $section ?>">
         Work in progress...
       </div>
+    </div>
+    <div class="flex justify-between">
+      <button class="p-2 rounded-lg bg-red-400/30">Cancel</button>
+      <button class="p-2 rounded-lg bg-blue-400/30">Save and update</button>
+
     </div>
   </form>
 </div>

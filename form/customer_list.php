@@ -2,18 +2,16 @@
 
 
 <div class="p-5 grow">
-  <form action="" class="flex justify-between items-center">
+  <form action="" class="<?= $filter ?>">
     <label class="flex gap-5 items-center">
       <p>Searcher:</p>
       <input type="text" name="customer_info" placeholder="Name, email...">
     </label>
-
     <input type="submit" value="Search">
-
   </form>
-  <table class="table-auto text-center mt-5 w-full">
+  <table class="<?= $table ?>">
     <thead>
-      <tr class="divide-x-1 divide-purple-600/30 grow">
+      <tr class="<?= $table_row_head ?> ">
         <th>Customer id</th>
         <th>Name</th>
         <th>Phone</th>

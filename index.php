@@ -1,12 +1,5 @@
 <?php require(__DIR__ . "/templates/header.php"); ?>
-<style>
-  .landscape {
-    background: url("<?php echo $myroot ?>img/hotel-landscape.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-</style>
+
 
 <section class="landscape grow flex justify-center p-20">
   <form action="<?php echo $myroot . "db/room_availability.php " ?> " method="get" class="flex flex-col  items-center backdrop-blur-sm rounded-xl h-fit w-fit border-1 border-purple-200 bg-purple-500/20 gap-10 p-10">

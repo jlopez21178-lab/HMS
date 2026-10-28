@@ -4,7 +4,7 @@ $myroot = "/student004/hotel/";
 $form_label = "flex p-2 justify-between w-[100%] items-center rounded-lg";
 $form = "flex items-center flex-col grow p-5";
 
-
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
 ?>
 
 
@@ -21,17 +21,7 @@ $form = "flex items-center flex-col grow p-5";
 </head>
 
 <style>
-  * {
-    /* padding: 0; */
-    /* margin: 0; */
-    box-sizing: border-box;
-  }
 
-  input[type="text"] {
-    outline: 2px solid purple;
-    padding: 4px;
-    border-radius: 10px;
-  }
 </style>
 
 <body class="bg-purple-100 flex flex-col min-h-screen">
@@ -40,8 +30,8 @@ $form = "flex items-center flex-col grow p-5";
       <img src="<?php echo $myroot; ?>img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
       <a href="<?php echo $myroot ?>" class="text-white">Aurelia Grand Hotel</a>
       <div class="text-white ">
-        <button class="cursor-pointer rounded-lg ring-1 p-2 ring-purple-600 hover:ring-purple-500">Log In</button>
-        <button class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</button>
+        <a href="/student004/hotel/form/login.php" class="cursor-pointer rounded-lg ring-1 p-2 ring-purple-600 hover:ring-purple-500">Log In</a>
+        <a href="/student004/hotel/form/signup.php" class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</a>
       </div>
     </nav>
   </header>
