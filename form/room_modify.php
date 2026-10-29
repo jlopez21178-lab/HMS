@@ -1,4 +1,4 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php"); ?>
 
 
 <form id="form-room-info" class="<?= $form ?> m-5 divide-purple-300 divide-dashed divide-y-3">
@@ -39,4 +39,4 @@
   })
 </script>
 
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php"); ?>

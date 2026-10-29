@@ -1,4 +1,4 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php"); ?>
 
 
 
@@ -22,4 +22,4 @@
 
   <input type="submit" value="Añadir" class="bg-green-200 rounded-lg p-3 cursor-pointer hover:bg-green-300">
 </form>
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php"); ?>

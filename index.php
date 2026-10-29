@@ -1,4 +1,4 @@
-<?php require(__DIR__ . "/templates/header.php"); ?>
+<?php require(__DIR__ . "/template/header.php"); ?>
 
 
 <section class="landscape grow flex justify-center p-20">
@@ -16,4 +16,4 @@
     <input type="submit" value="Reservar" class="p-3 ring-1 ring-purple-600 cursor-pointer w-fit rounded-lg text-purple-50 hover:bg-purple-600 transition hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-purple-400">
   </form>
 </section>
-<?php require(__DIR__ . "/templates/footer.php") ?>
+<?php require(__DIR__ . "/template/footer.php") ?>

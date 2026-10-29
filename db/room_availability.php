@@ -1,6 +1,6 @@
 <?php
 
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_room.php");
 
@@ -30,4 +30,4 @@ foreach ($rooms as $room)  show_room($room);
 
 echo "</section>";
 
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php");

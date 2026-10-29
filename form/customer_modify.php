@@ -1,4 +1,4 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
 
 $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center"

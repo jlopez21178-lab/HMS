@@ -1,5 +1,5 @@
 
-<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php") ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php") ?>
 
 <?php require("./db_connect.php") ?>
 
@@ -27,4 +27,4 @@ mysqli_close($conn);
 
 
 
-<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php") ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php") ?>

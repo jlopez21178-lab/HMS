@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
 
 $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
 ?>
@@ -60,4 +60,4 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
   </table>
 </div>
 
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/templates/footer.php"); ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php"); ?>
