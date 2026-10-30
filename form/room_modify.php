@@ -1,4 +1,5 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php"); ?>
+
 
 
 <form id="form-room-info" class="<?= $form ?> m-5 divide-purple-300 divide-dashed divide-y-3">

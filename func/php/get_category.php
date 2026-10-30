@@ -5,5 +5,4 @@ $res = mysqli_query($conn, $sql);
 $category = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 mysqli_close($conn); 
-
 ?>

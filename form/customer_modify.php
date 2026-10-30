@@ -1,75 +1,10 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
-
-$title = "border-b-1 border-purple-600/30 text-2xl";
-$section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center"
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.php");
 ?>
 
-<div class="p-5 grow flex  justify-center ">
-  <form class="[&>div]:mt-5 max-w-[50vw] grow relative">
-    <h1 class="text-3xl">Customer record - <?= $_GET["customer_id"] ?></h1>
-    <div>
-      <h1 class="<?= $title ?>">Personal info</h1>
-      <div class="<?= $section ?>">
-        <label>
-          <p>Name & Surname:</p>
-          <input type="text" name="full_name" value="<?= $_GET["full_name"] ?>">
-        </label>
-        <label>
-          <p>Phone:</p>
-          <input type="text" name="phone" value="<?= $_GET["phone"] ?>">
-        </label>
-        <label>
-          <p>Email:</p>
-          <input type="text" name="email" value="<?= $_GET["email"] ?>">
-        </label>
-      </div>
-    </div>
-    <div>
-      <h1 class="<?= $title ?>">Identification</h1>
-      <div class="<?= $section ?>">
-        <label>
-          <p>Nationality:</p>
-          <select id="nationality" name="nationality"></select>
-        </label>
-        <label>
-          <p>Identity number:</p>
-          <input type="text" name="identity_number" value="<?= $_GET["identity_number"] ?>">
-        </label>
-        <label>
-          <p>Birthdate:</p>
-          <input type="date" name="birthdate" value="<?= $_GET["birthdate"] ?>">
-        </label>
-        <label>
-          <p>Expiracy:</p>
-          <input type="date" name="id_expire_date" value="<?= $_GET["id_expire_date"] ?>">
-        </label>
-      </div>
-    </div>
-    <div>
-      <h1 class="<?= $title ?>">Addresses</h1>
-      <div class="<?= $section ?>">
-        <!-- <button>Add new address</button> -->
-        <table>
-          Work in progress...
-        </table>
-      </div>
-    </div>
-    <div>
-      <h1 class="<?= $title ?>">History reservation</h1>
-      <div class="<?= $section ?>">
-        Work in progress...
-      </div>
-    </div>
-    <div class="flex justify-between">
-      <button class="p-2 rounded-lg bg-red-400/30">Cancel</button>
-      <button class="p-2 rounded-lg bg-blue-400/30">Save and update</button>
-
-    </div>
-  </form>
-</div>
-
-<!-- Funcion para mostrar la nacionalidad -->
 <script>
+  //  Funcion para mostrar la nacionalidad 
   loadJson()
 
   async function loadJson() {
@@ -99,4 +34,21 @@ $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap
       console.error(error)
     }
   }
+
+  // coger los datos y añadirlos a los campos
+  const form = document.getElementById("form");
+
+  // Coje la search bar, la separa en clave - valor, la transforma en un objeto estandar de js
+  const values = Object.fromEntries(new URLSearchParams(window.location.search));
+
+  for (let i = 0; i < form.length - 2; i++) {
+    form[i].value = values[form[i].name];
+  }
+
+  // Boton para aceptar los canvios
+  const acceptBtn = document.getElementById("acceptBtn");
+  acceptBtn.textContent = "Save and update";
+  acceptBtn.addEventListener("click", () => {
+    window.location.href = "/student004/hotel/db/customer_update.php?" + (new URLSearchParams(new FormData(form))).toString();
+  })
 </script>

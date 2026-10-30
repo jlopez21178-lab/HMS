@@ -1,6 +1,8 @@
 <?php http_response_code(404);
 
-// include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php)");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,7 @@
       <p>Upss... The page is currently under construction, come back later</p>
       <i class="ph ph-spinner animate-spin "></i>
     </div>
-    <a href="/student004/hotel" class="p-5 bg-purple-900/30 rounded-lg hover:bg-purple-900/40">Go back to home</a>
+    <a href="<?= $homePath ?>" class="p-5 bg-purple-900/30 rounded-lg hover:bg-purple-900/40">Go back to home</a>
   </div>
 </body>
 

@@ -1,5 +1,5 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
 // $sql = 'DELETE FROM `004_room` WHERE room_id = ' . $_GET["room_id"];

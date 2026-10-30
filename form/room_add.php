@@ -1,8 +1,6 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php"); ?>
 
-
-
-<form action="<?php echo $myroot; ?>db/room_add.php" method="get" class="<?php echo $form ?>">
+<form action="/student004/hotel/db/room_add.php" method="get" class="<?php echo $form ?>">
   <label class="<?php echo $form_label ?>">
     <p>Numero de habitacion:</p>
     <input type="text" name="room_number" placeholder="Numero de habitacion">

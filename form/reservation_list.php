@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 
 $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
 ?>
@@ -26,14 +26,19 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
           <p>Categoria dada</p>
           <select name="category_given">
             <option></option>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_category.php") ?>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+            foreach ($category as $cat) { ?>
+              <option <?= ((isset($_GET["category_given"]) && $cat["code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
+            <?php } ?>
           </select>
         </label>
         <label>
           <p>Categoria cobrada</p>
           <select name="category_charged">
             <option></option>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/getters/get_category.php") ?>
+            <?php foreach ($category as $cat) { ?>
+              <option <?= ((isset($_GET["category_charged"]) && $cat["code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
+            <?php } ?>
           </select>
         </label>
       </div>

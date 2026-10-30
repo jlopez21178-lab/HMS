@@ -1,12 +1,9 @@
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
-session_start();
-
 $error = "";
-$_SESSION["userRole"] = "guest";
 if (isset($_GET["email"]) && isset($_GET["password"])) {
 
-  // Preparar consulta
+  // Preparar consulta para customer
   $stmt = $conn->prepare("SELECT * 
                         FROM `004_customer` AS cus 
                         WHERE cus.email = ? 
@@ -23,6 +20,9 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
   if ($user) {
     $_SESSION["userRole"] = "customer";
   } else {
+    // Si no es cliente comprobar si es trabajador o se ha equivocado
+
+    // Preparar consulta para trabajadores
     $stmt = $conn->prepare("SELECT * 
                         FROM `004_worker` AS worker 
                         WHERE worker.email = ? 
@@ -45,4 +45,4 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
       $error = "No se ha encontrado una cuenta con esas credenciales";
     }
   }
-}
+} ?>

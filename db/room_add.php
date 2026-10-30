@@ -1,5 +1,5 @@
 
-<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php") ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php") ?>
 
 <?php require("./db_connect.php") ?>
 

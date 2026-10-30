@@ -1,4 +1,6 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php"); ?>
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+?>
 
 <div class="grow p-5">
   <form id="filter-form" class="<?= $filter ?> !flex-row">
