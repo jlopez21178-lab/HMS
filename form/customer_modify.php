@@ -46,6 +46,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.ph
     form[i].value = values[form[i].name];
   }
 
+  cancelBtn(document.getElementById("cancelBtn"));
+
   // Boton para aceptar los canvios
   const acceptBtn = document.getElementById("acceptBtn");
   acceptBtn.textContent = "Save and update";

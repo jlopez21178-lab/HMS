@@ -1,9 +1,6 @@
-
-<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php") ?>
-
-<?php require("./db_connect.php") ?>
-
 <?php
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+require("./db_connect.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "get") {
   $hotel_id = $_GET["hotel_id"];
@@ -23,8 +20,3 @@ if ($_SERVER["REQUEST_METHOD"] === "get") {
 
 
 mysqli_close($conn);
-?>
-
-
-
-<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php") ?>

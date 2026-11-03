@@ -55,14 +55,8 @@
       </div>
     </div>
     <div class="<?= $btn_container ?>">
-      <button class="<?= $btn_cancel ?>">Cancel</button>
+      <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
       <button id="acceptBtn" class="<?= $btn_accept ?>"></button>
     </div>
   </form>
 </div>
-
-<!-- Funcion para mostrar la nacionalidad -->
-<script>
-
- 
-</script>

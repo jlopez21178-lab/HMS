@@ -1,23 +1,52 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php"); ?>
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_hotel.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+?>
 
-<form action="/student004/hotel/db/room_add.php" method="get" class="<?php echo $form ?>">
-  <label class="<?php echo $form_label ?>">
-    <p>Numero de habitacion:</p>
-    <input type="text" name="room_number" placeholder="Numero de habitacion">
-  </label>
+<div class="<?= $form_container ?>">
 
-  <label class="<?php echo $form_label ?>">
-    <!-- modificar para que sea una lista con los hoteles -->
-    <p>Hotel id:</p>
-    <input type="text" name="hotel_id" placeholder="Hotel">
-  </label>
+  <form action="/student004/hotel/db/room_add.php" method="get" class="<?= $form ?>">
 
-  <label class="<?php echo $form_label ?>">
-    <!-- modificar para que sea una lista con las categorias -->
-    <p>Categoria id:</p>
-    <input type="text" name="category_id" placeholder="Categoria">
-  </label>
+    <h1 class="text-3xl">Add room</h1>
 
-  <input type="submit" value="Añadir" class="bg-green-200 rounded-lg p-3 cursor-pointer hover:bg-green-300">
-</form>
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php"); ?>
+    <section class="<?= $section ?>">
+      <label>
+        <p>Room number:</p>
+        <input type="text" name="room_number" placeholder="Numero de habitacion">
+      </label>
+    </section>
+
+    <section class="<?= $section ?>">
+      <label>
+        <p>Hotel:</p>
+        <select name="city" id="city" class="grow">
+          <option>Select a hotel</option>
+          <?php foreach ($hotel as $hot) { ?>
+            <option><?= $hot["city"] ?></option>
+          <?php } ?>
+        </select>
+      </label>
+    </section>
+
+    <section class="<?= $section ?>">
+      <label>
+        <p>Category:</p>
+        <select name="code" id="code" class="grow">
+          <option>Select a category</option>
+          <?php foreach ($category as $cat) { ?>
+            <option><?= $cat["code"] ?></option>
+          <?php } ?>
+        </select>
+      </label>
+    </section>
+    <div class="<?= $btn_container ?>">
+      <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
+      <input type="submit" value="Add" class="<?= $btn_accept ?>">
+    </div>
+  </form>
+</div>
+
+<script>
+  cancelBtn(document.getElementById("cancelBtn"));
+</script>

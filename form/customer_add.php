@@ -7,6 +7,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.ph
   const acceptBtn = document.getElementById("acceptBtn");
   acceptBtn.textContent = "Create customer"
 
+  cancelBtn(document.getElementById("cancelBtn"));
+
   async function loadJson() {
     try {
       // obtener json
@@ -29,7 +31,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.ph
         countriesSelect.append(option);
       }
     } catch (error) {
-      console.error(error)
+      console.error("Error al obtenir el json", error);
     }
   }
 

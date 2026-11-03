@@ -27,8 +27,9 @@ $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center";
 
 $btn_container = "flex justify-around w-[100%] mt-[30%]";
-$btn_cancel = "p-5 rounded-lg bg-red-400/30 hover:bg-red-400/50 hover:cursor-pointer";
 $btn_accept = "p-5 rounded-lg bg-blue-400/30 hover:bg-blue-400/50 hover:cursor-pointer";
+$btn_cancel = "p-5 rounded-lg bg-red-400/30 hover:bg-red-400/50 hover:cursor-pointer";
+$btn_delete = "";
 
 // comando sql ejecutado correctamente / error
 $execute_container = "flex flex-col justify-center items-center grow";
@@ -56,3 +57,13 @@ $execute_error = "p-15 bg-red-400/30 rounded-lg";
     background-repeat: no-repeat;
   }
 </style>
+
+<!-- JS -->
+<script>
+  function cancelBtn(btn) {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "<?= $homePath ?>";
+    });
+  }
+</script>

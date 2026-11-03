@@ -5,6 +5,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_room.php");
 
 <div class="<?= $form_container ?>">
   <form id="form-room-info" class="<?= $form ?>">
+
+    <h1 class="text-3xl">Modify room - <?= $_GET["room_id"] ?></h1>
+
     <section class="<?= $section ?>">
       <label>
         <p>Room number:</p>
@@ -31,16 +34,19 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_room.php");
       </label>
     </section>
 
-    <div id="button-container" class="flex justify-around w-[100%] mt-[30%]">
-      <button id="delete" class="<?= $btn_cancel ?>">Delete</button>
-      <button id="update" class="<?= $btn_accept ?>">Update</button>
+    <div id="button-container" class="<?= $btn_container ?>">
+      <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
+      <button id="deleteBtn" class="<?= $btn_delete ?>">Delete</button>
+      <button id="updateBtn" class="<?= $btn_accept ?>">Update</button>
   </form>
 </div>
 </div>
 
 <script>
-  const deleteBtn = document.getElementById("delete");
-  const updateBtn = document.getElementById("update");
+  const deleteBtn = document.getElementById("deleteBtn");
+  const updateBtn = document.getElementById("updateBtn");
+
+  cancelBtn(document.getElementById("cancelBtn"));
 
   deleteBtn.addEventListener("click", (e) => {
     e.preventDefault();
