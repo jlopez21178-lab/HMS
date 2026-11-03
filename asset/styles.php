@@ -8,7 +8,7 @@
 
 // rutas
 $formPath = "/student004/hotel/form";
-$homePath = ($_SESSION["userRole"] == "guest" && $_SESSION["userRole"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
+$homePath = ($_SESSION["userRole"] == "guest" || $_SESSION["userRole"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
 
 
 // Tablas
@@ -17,12 +17,23 @@ $table_row_head = "divide-x-1 divide-purple-600/30";
 $table_row_data = "border-t-1 border-purple-600/30 hover:bg-purple-600/10 divide-x-1 divide-purple-600/30 [&>td]:p-2";
 $table_button = "p-1 bg-purple-400/30 hover:cursor-pointer hover:bg-purple-400/40";
 
-// Forms filtros
+// Form filtros
 $filter = "flex gap-5 p-5 border-1 border-purple-200 rounded-lg";
 
-// Form file 
+// Form datos
+$form = "[&>div]:mt-5 max-w-[50vw] grow";
+$form_container = "p-5 grow flex  justify-center";
 $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center";
+
+$btn_container = "flex justify-around w-[100%] mt-[30%]";
+$btn_cancel = "p-5 rounded-lg bg-red-400/30 hover:bg-red-400/50 hover:cursor-pointer";
+$btn_accept = "p-5 rounded-lg bg-blue-400/30 hover:bg-blue-400/50 hover:cursor-pointer";
+
+// comando sql ejecutado correctamente / error
+$execute_container = "flex flex-col justify-center items-center grow";
+$execute_correct = "p-15 bg-green-400/30 rounded-lg ";
+$execute_error = "p-15 bg-red-400/30 rounded-lg";
 ?>
 
 <!-- CSS -->

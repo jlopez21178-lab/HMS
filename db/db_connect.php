@@ -22,9 +22,21 @@ DROP TABLE IF EXISTS `004_hotel`;
 
 */
 
+$conn = mysqli_init();
 
+// flags necesarias para el buen funcionamiento de la conexion
+$flags = MYSQLI_CLIENT_FOUND_ROWS; //  devuelve el numero de filas que coinciden en vez de las filas afectadas en el UPDATE 
 
-$conn = mysqli_connect("localhost", "root", "", "hms", 3307);
+$conn->real_connect(
+  "localhost",
+  "root",
+  "",
+  "hms",
+  3307,
+  null,
+  $flags
+);
+
 // $conn = mysqli_connect("remotehost.es", "dwesuser1234", "DWES20261014ftp33!", "dweshoteldb");
 
 if (!$conn)

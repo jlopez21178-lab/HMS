@@ -1,16 +1,9 @@
 <?php
-// $myroot = $_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/";
-$form_label = "flex p-2 justify-between w-[100%] items-center rounded-lg";
-$form = "flex items-center flex-col grow p-5";
-
 session_start();
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
-
 // iniciar el rol del usuario a guest si no esta inciado
-if (!isset($_SESSION["userRole"])) {
-  $_SESSION["userRole"] = "guest";
-}
+if (!isset($_SESSION["userRole"])) $_SESSION["userRole"] = "guest";
 
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
 ?>
 
 

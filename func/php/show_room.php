@@ -2,7 +2,6 @@
 
 function show_room($room)
 {
-
   $room_default =  "this.onerror=null; this.src='/student004/hotel/img/room/default.jpg'";
   $room_img = "/student004/hotel/img/room/hotel-" . $room["hotel_id"] . "-category-" . $room["category_id"];
 ?>
