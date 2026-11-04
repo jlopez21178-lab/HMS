@@ -12,6 +12,6 @@
       <details class="column hover:cursor-pointer">
         <summary>Reservations</summary>
         <a href="<?= $formPath . "/reservation_list.php" ?>" class="block">List</a>
-        <a href="<?= $formPath . "/reservation_create.php" ?> " class="block">New reservation</a>
+        <a href="<?= $formPath . "/reservation_add.php" ?> " class="block">New reservation</a>
       </details>
     </aside>

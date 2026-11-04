@@ -1,6 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_room.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_room.php");
 ?>
 
 <div class="<?= $form_container ?>">
@@ -26,7 +26,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_room.php");
       <label>
         <p>Category:</p>
         <select name="code">
-          <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
           foreach ($category as $cat) { ?>
             <option <?= ($cat["code"] == $room["code"] ? "selected" : "") ?>><?= $cat["code"] ?></option>
           <?php } ?>

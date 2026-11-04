@@ -8,25 +8,26 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
 <div class="p-5 grow">
   <form class="<?= $filter ?>">
     <div class="flex gap-5">
-      <button class="<?= $buttonStyle ?> bg-fuchsia-900/50 hover:bg-fuchsia-900/60">Entradas de hoy</button>
-      <button class="<?= $buttonStyle ?> bg-mauve-800/30 hover:bg-mauve-800/40">Salidas de hoy</button>
+      <button class="<?= $buttonStyle ?> bg-fuchsia-900/50 hover:bg-fuchsia-900/60">Check In</button>
+      <button class="<?= $buttonStyle ?> bg-mauve-800/30 hover:bg-mauve-800/40">Ongoing</button>
+      <button class="<?= $buttonStyle ?> bg-mauve-800/30 hover:bg-mauve-800/40">Check Out</button>
     </div>
     <div class="flex justify-between">
       <div class="flex gap-5">
         <label>
-          <p>Fecha de entrada:</p>
+          <p>Check in:</p>
           <input type="date" name="date_in">
         </label>
 
         <label>
-          <p>Fecha de salida:</p>
+          <p>Check out:</p>
           <input type="date" name="date_out">
         </label>
         <label>
           <p>Categoria dada</p>
           <select name="category_given">
             <option></option>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
             foreach ($category as $cat) { ?>
               <option <?= ((isset($_GET["category_given"]) && $cat["code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
             <?php } ?>

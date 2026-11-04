@@ -8,14 +8,14 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
       <p>Ciudad: </p>
       <select name="city">
         <option></option>
-        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_hotel.php"); ?>
+        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php"); ?>
       </select>
     </label>
     <label class="flex">
       <p>Categoria: </p>
       <select name="code">
         <option></option>
-        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/get_category.php");
+        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
         foreach ($category as $cat) { ?>
           <option <?= ((isset($_GET["code"]) && $cat["code"] == $_GET["code"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
         <?php } ?>

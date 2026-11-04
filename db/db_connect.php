@@ -21,23 +21,37 @@ DROP TABLE IF EXISTS `004_customer`;
 DROP TABLE IF EXISTS `004_hotel`;
 
 */
+// $localhost = false;
+$localhost = true;
 
 $conn = mysqli_init();
 
 // flags necesarias para el buen funcionamiento de la conexion
 $flags = MYSQLI_CLIENT_FOUND_ROWS; //  devuelve el numero de filas que coinciden en vez de las filas afectadas en el UPDATE 
 
-$conn->real_connect(
-  "localhost",
-  "root",
-  "",
-  "hms",
-  3307,
-  null,
-  $flags
-);
+if ($localhost) {
+  $conn->real_connect(
+    "localhost",
+    "root",
+    "",
+    "hms",
+    3307,
+    null,
+    $flags
+  );
+} else {
+  $conn->real_connect(
+    "remotehost.es",
+    "dwesuser1234",
+    "DWES20261014ftp33!",
+    "dweshoteldb",
+    null,
+    null,
+    $flags
+  );
+}
 
-// $conn = mysqli_connect("remotehost.es", "dwesuser1234", "DWES20261014ftp33!", "dweshoteldb");
+// $conn->set_charset("utf8");
 
 if (!$conn)
   echo ("Algo ha salido mal");
