@@ -1,4 +1,5 @@
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/move_to.php");
 
 $error = "";
 if (isset($_GET["email"]) && isset($_GET["password"])) {
@@ -19,6 +20,8 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 
   if ($user) {
     $_SESSION["userRole"] = "customer";
+    $_SESSION["userId"] = $user["customer_id"];
+    move_to("/student004/hotel/index.php");
   } else {
     // Si no es cliente comprobar si es trabajador o se ha equivocado
 
@@ -37,12 +40,11 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
     $user = $stmt->get_result()->fetch_assoc();
 
     if ($user) {
-      $_SESSION["userRole"] = $user["role"]; ?>
-      <script>
-        window.location.href = "/student004/hotel/bo_index.php";
-      </script>
-<?php } else {
+      $_SESSION["userRole"] = $user["role"];
+      $_SESSION["userId"] = $user["worker_id"];
+      move_to("/student004/hotel/bo_index.php");
+    } else {
       $error = "No se ha encontrado una cuenta con esas credenciales";
     }
   }
-} ?>
+}

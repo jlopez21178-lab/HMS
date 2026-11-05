@@ -4,7 +4,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 ?>
 
 <div class="<?= $form_container ?>">
-  <form class="<?= $form ?>">
+  <form id="form_create_reservation" class="<?= $form ?>">
     <h1 class="text-3xl">Create new reservation</h1>
     <section class="<?= $section ?>">
       <h1 class="<?= $title ?>">Room information</h1>
@@ -53,7 +53,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
       <h1 class="<?= $title ?>">Customer information</h1>
       <label>
         <p>Customer:</p>
-        <input list="customerList" id="customerSearcher" name="customer" placeholder="Search customer">
+        <input list="customerList" id="customerSearcher" name="customer_id" placeholder="Search customer">
         <button type="button">Select</button>
       </label>
       <div>
@@ -66,7 +66,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <div class="<?= $btn_container ?>">
       <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
       <!-- TODO solo te deja ver y/o clickar el boton de create cuando todos los datos son validos -->
-      <button class="<?= $btn_accept ?>">Create</button>
+      <button type="button" id="createBtn" class="<?= $btn_accept ?>">Create</button>
     </div>
   </form>
 </div>
@@ -98,7 +98,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     };
 
     try {
-
       // acceder a serch_customer por post
       const res = await fetch(url, {
         method: "POST",
@@ -126,6 +125,47 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 
     } catch (error) {
       console.error(error);
+    }
+  }
+
+  document.getElementById("createBtn").addEventListener("click", () => {
+    const form = document.getElementById("form_create_reservation");
+
+    // creamos un json con los valores del formulario
+    let reservationInfo = {};
+    for (let i = 0; i < form.length; i++) {
+      reservationInfo[form[i].name] = form[i].value;
+    }
+
+    createReservation(reservationInfo);
+
+  });
+
+
+
+  async function createReservation(reservationInfo) {
+    const url = "/student004/hotel/db/reservation_add.php";
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reservationInfo)
+      });
+
+      if (!res.ok) throw new Error(res.status);
+
+      let inserted = await res.json();
+
+      if (inserted.successful) {
+        console.log("Se ha creado la reserva exitosamente");
+      } else {
+        console.log("No se ha creado la reserva por un error");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 </script>
