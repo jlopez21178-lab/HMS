@@ -13,11 +13,11 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
     </label>
     <label class="flex">
       <p>Categoria: </p>
-      <select name="code">
+      <select name="category_code">
         <option></option>
         <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
         foreach ($category as $cat) { ?>
-          <option <?= ((isset($_GET["code"]) && $cat["code"] == $_GET["code"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
+          <option <?= ((isset($_GET["category_code"]) && $cat["category_code"] == $_GET["category_code"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
         <?php } ?>
       </select>
     </label>

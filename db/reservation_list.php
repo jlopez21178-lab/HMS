@@ -4,8 +4,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_reservation_list.php");
 
 $sql = "SELECT *, 
-        (SELECT code FROM `004_category` WHERE category_id = res.category_given) AS 'cat_code_given', 
-        (SELECT code FROM `004_category` WHERE category_id = res.category_charged) AS 'cat_code_charged'
+        (SELECT category_code FROM `004_category` WHERE category_id = res.category_given) AS 'cat_code_given', 
+        (SELECT category_code FROM `004_category` WHERE category_id = res.category_charged) AS 'cat_code_charged'
         FROM `004_reservation` AS res
         LEFT JOIN `004_customer` AS cus
           ON res.customer_id = cus.customer_id

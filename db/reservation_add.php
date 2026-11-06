@@ -12,6 +12,16 @@ if (empty($data)) {
   exit;
 }
 
+// cojer el precio cobrado
+$stmt = $conn->prepare("SELECT price_night FROM `004_category` AS cat WHERE cat.category_id = ?");
+$stmt->bind_param("i", $data["category_charged"]);
+$stmt->execute();
+
+// devuelve un array con un array, por eso el [0][0]
+$price_night = $stmt->get_result()->fetch_all()[0][0];
+
+
+// preparar el insert
 $stmt = $conn->prepare(
   "INSERT 
    INTO `004_reservation`(hotel_id, 
@@ -26,16 +36,17 @@ $stmt = $conn->prepare(
 );
 
 // TODO seleccionar el hotel por el hotel_id donde trabaja el que hace la reserva y quitar el default de 1
+$hotel_id = 1;
 
 $stmt->bind_param(
   "iissiid",
-  1,
+  $hotel_id,
   $data["customer_id"],
   $data["date_in"],
   $data["date_out"],
   $data["category_given"],
   $data["category_charged"],
-  $data["price_night"]
+  $price_night
 );
 
 $stmt->execute();

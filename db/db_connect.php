@@ -51,7 +51,7 @@ if ($localhost) {
   );
 }
 
-// $conn->set_charset("utf8");
+$conn->set_charset("utf8mb4");
 
 if (!$conn)
   echo ("Algo ha salido mal");

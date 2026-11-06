@@ -3,6 +3,14 @@ session_start();
 // iniciar el rol del usuario a guest si no esta inciado
 if (!isset($_SESSION["userRole"])) $_SESSION["userRole"] = "guest";
 
+$lenguages = ["ES", "CAT", "EN", "DE"];
+
+if (isset($_POST["lenguage"])) {
+  setcookie("lang", $_POST["lenguage"], time() + (7 * 86400), '/');
+  header("Location: " . $_SERVER["REQUEST_URI"]);
+}
+$selected_lenguage = $_COOKIE["lang"] ?? $lenguages[0];
+
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
 ?>
 
@@ -22,7 +30,16 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
 <body class="bg-purple-100 flex flex-col min-h-screen">
   <header class="sticky top-0 z-30">
     <nav class="bg-black flex justify-between items-center p-5  shadow-lg shadow-purple-400 z-3">
-      <img src="/student004/hotel/img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
+      <div class="flex">
+        <img src="/student004/hotel/img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
+        <form action="" method="POST">
+          <select name="lenguage" id="lenguage" class="text-white bg-black" onchange="this.form.submit()">
+            <?php foreach ($lenguages as $leng) { ?>
+              <option value="<?= $leng ?>" <?= ($selected_lenguage === $leng) ? "selected" : ""  ?>><?= $leng ?> </option>
+            <?php } ?>
+          </select>
+        </form>
+      </div>
       <a href="<?= $homePath ?>" class="text-white">Aurelia Grand Hotel</a>
       <?php if ($_SESSION["userRole"] == "guest") { ?>
         <div class="text-white ">

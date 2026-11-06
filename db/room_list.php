@@ -14,8 +14,8 @@ if (isset($_GET["city"]) && $_GET["city"] != "") {
   $sql .= " AND hotel.city = '" . $_GET["city"] . "'";
 }
 
-if (isset($_GET["code"]) && $_GET["code"] != "") {
-  $sql .= " AND category.code = '" . $_GET["code"] . "'";
+if (isset($_GET["category_code"]) && $_GET["category_code"] != "") {
+  $sql .= " AND category.code = '" . $_GET["category_code"] . "'";
 }
 
 $res = mysqli_query($conn, $sql);

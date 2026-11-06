@@ -1,16 +1,14 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-
-$buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
 ?>
 
 
 <div class="p-5 grow">
-  <form class="<?= $filter ?>">
+  <form class="<?= $filter ?> flex-col">
     <div class="flex gap-5">
-      <button class="<?= $buttonStyle ?> bg-fuchsia-900/50 hover:bg-fuchsia-900/60">Check In</button>
-      <button class="<?= $buttonStyle ?> bg-mauve-800/30 hover:bg-mauve-800/40">Ongoing</button>
-      <button class="<?= $buttonStyle ?> bg-mauve-800/30 hover:bg-mauve-800/40">Check Out</button>
+      <button class="<?= $btn ?> bg-fuchsia-500/30 hover:bg-fuchsia-500/40">Check In</button>
+      <button class="<?= $btn ?> bg-green-500/30 hover:bg-green-500/40">Ongoing</button>
+      <button class="<?= $btn ?> bg-red-500/30 hover:bg-red-500/40">Check Out</button>
     </div>
     <div class="flex justify-between">
       <div class="flex gap-5">
@@ -29,7 +27,7 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
             <option></option>
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
             foreach ($category as $cat) { ?>
-              <option <?= ((isset($_GET["category_given"]) && $cat["code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
+              <option <?= ((isset($_GET["category_given"]) && $cat["category_code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
             <?php } ?>
           </select>
         </label>
@@ -38,12 +36,12 @@ $buttonStyle = "p-2 rounded-lg hover:cursor-pointer ";
           <select name="category_charged">
             <option></option>
             <?php foreach ($category as $cat) { ?>
-              <option <?= ((isset($_GET["category_charged"]) && $cat["code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["code"] ?></option>
+              <option <?= ((isset($_GET["category_charged"]) && $cat["category_code"] == $_GET["category_given"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
             <?php } ?>
           </select>
         </label>
       </div>
-      <input type="submit" value="Filtrar" class="<?= $buttonStyle ?> right relative">
+      <input type="submit" value="Filtrar" class="<?= $btn ?> right relative">
     </div>
   </form>
   <table class="<?= $table ?>">

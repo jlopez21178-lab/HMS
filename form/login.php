@@ -10,7 +10,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/login.php") ?>
 
     <h1 class="text-2xl text-purple-200">Log In</h1>
     <label>
-      <p>Gmail:</p>
+      <p>Email:</p>
       <input type="text" name="email" id="email" required>
     </label>
     <label>

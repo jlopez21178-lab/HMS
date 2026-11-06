@@ -32,10 +32,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <section class="<?= $section ?>">
       <label>
         <p>Category:</p>
-        <select name="code" id="code" class="grow">
+        <select name="category_code" id="category_code" class="grow">
           <option>Select a category</option>
           <?php foreach ($category as $cat) { ?>
-            <option><?= $cat["code"] ?></option>
+            <option><?= $cat["category_code"] ?></option>
           <?php } ?>
         </select>
       </label>

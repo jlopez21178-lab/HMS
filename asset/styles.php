@@ -5,11 +5,9 @@
 
 
 <?php
-
 // rutas
 $formPath = "/student004/hotel/form";
 $homePath = ($_SESSION["userRole"] == "guest" || $_SESSION["userRole"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
-
 
 // Tablas
 $table = "table-auto text-center mt-5 w-full";
@@ -26,9 +24,11 @@ $form_container = "p-5 grow flex  justify-center";
 $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center";
 
+// botones
+$btn = "px-5 py-3 rounded-lg";
 $btn_container = "flex justify-around w-[100%] mt-[30%]";
-$btn_accept = "px-5 py-3 rounded-lg bg-blue-400/30 hover:bg-blue-400/50 hover:cursor-pointer";
-$btn_cancel = "px-5 py-3 rounded-lg bg-red-400/30 hover:bg-red-400/50 hover:cursor-pointer";
+$btn_accept = $btn . " bg-blue-400/30 hover:bg-blue-400/50";
+$btn_cancel = $btn . " bg-red-400/30 hover:bg-red-400/50";
 $btn_delete = "";
 
 // comando sql ejecutado correctamente / error

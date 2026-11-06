@@ -4,9 +4,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 ?>
 
 <div class="<?= $form_container ?>">
-  <form id="form_create_reservation" class="<?= $form ?>">
+  <form id="form-create-reservation" class="<?= $form ?>">
     <h1 class="text-3xl">Create new reservation</h1>
-    <section class="<?= $section ?>">
+    <section id="date-section" class="<?= $section ?>">
       <h1 class="<?= $title ?>">Room information</h1>
       <div class="flex justify-between">
         <div class="flex gap-5">
@@ -27,34 +27,33 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     </section>
 
     <!-- TODO the selector only shows when the dates are introduced, shows the total price, does not let you select categories not available -->
-    <section id="categorySelector" class="<?= $section ?>">
+    <section id="category-section" class="<?= $section ?>">
       <label>
         <p>Category given:</p>
-        <select name="category_given" id="categoryGiven">
+        <select name="category_given" id="category-given">
           <option>Select category</option>
           <?php foreach ($category as $cat) { ?>
-            <option> <?= $cat["code"] . " - " . $cat["price_night"] . " / night" ?></option>
+            <option value="<?= $cat["category_id"] ?>"> <?= $cat["category_code"] . " - " . $cat["price_night"] . " / night" ?></option>
           <?php }; ?>
         </select>
       </label>
       <label>
         <p>Category charged:</p>
-        <select name="category_charged" id="categoryCharged">
+        <select name="category_charged" id="category-charged">
           <option>Select category</option>
           <?php foreach ($category as $cat) { ?>
-            <option> <?= ($cat["code"] . " - " . $cat["price_night"] . " / night") ?></option>
+            <option value="<?= $cat["category_id"] ?>"> <?= ($cat["category_code"] . " - " . $cat["price_night"] . " / night") ?></option>
           <?php }; ?>
         </select>
       </label>
     </section>
 
 
-    <section class="<?= $section ?>">
+    <section id="customer-information" class="<?= $section ?>">
       <h1 class="<?= $title ?>">Customer information</h1>
       <label>
         <p>Customer:</p>
-        <input list="customerList" id="customerSearcher" name="customer_id" placeholder="Search customer">
-        <button type="button">Select</button>
+        <input list="customer-list" id="customer-searcher" name="customer_id" placeholder="Search customer">
       </label>
       <div>
         <a href="/student004/hotel/form/customer_add.php" class="<?= $btn_accept ?>">Add new customer</a>
@@ -64,21 +63,21 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 
 
     <div class="<?= $btn_container ?>">
-      <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
+      <button id="cancel-btn" type="button" class="<?= $btn_cancel ?>">Cancel</button>
       <!-- TODO solo te deja ver y/o clickar el boton de create cuando todos los datos son validos -->
-      <button type="button" id="createBtn" class="<?= $btn_accept ?>">Create</button>
+      <button type="button" id="create-btn" class="<?= $btn_accept ?>">Create</button>
     </div>
   </form>
 </div>
 
-<datalist id="customerList">
+<datalist id="customer-list">
 </datalist>
 
 <script>
-  cancelBtn(document.getElementById("cancelBtn"));
+  cancelBtn(document.getElementById("cancel-btn"));
 
-  const customerList = document.getElementById("customerList");
-  const customerSearcher = document.getElementById("customerSearcher");
+  const customerList = document.getElementById("customer-list");
+  const customerSearcher = document.getElementById("customer-searcher");
 
   customerSearcher.addEventListener("input", (e) => {
     if (customerSearcher.value.length <= 3) {
@@ -128,17 +127,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     }
   }
 
-  document.getElementById("createBtn").addEventListener("click", () => {
-    const form = document.getElementById("form_create_reservation");
-
-    // creamos un json con los valores del formulario
-    let reservationInfo = {};
-    for (let i = 0; i < form.length; i++) {
-      reservationInfo[form[i].name] = form[i].value;
-    }
-
-    createReservation(reservationInfo);
-
+  document.getElementById("create-btn").addEventListener("click", () => {
+    const form = document.getElementById("form-create-reservation");
+    createReservation(Object.fromEntries(new FormData(form)));
   });
 
 
@@ -159,6 +150,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 
       let inserted = await res.json();
 
+      console.log(inserted);
+
       if (inserted.successful) {
         console.log("Se ha creado la reserva exitosamente");
       } else {
@@ -168,4 +161,28 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
       console.log(error);
     }
   }
+
+  // metodo para ir mostrando el formulario gradualmente
+  // fechas -> categoria -> customer
+  const form = document.getElementById("form-create-reservation")
+  const dateSection = document.getElementById("date-section");
+  const categorySection = document.getElementById("category-section");
+  const customerSection = document.getElementById("customer-information")
+  const createBtn = document.getElementById("create-btn");
+
+  categorySection.style.display = "none";
+  customerSection.style.display = "none";
+  createBtn.style.display = "none";
+
+  dateSection.addEventListener("blur", () => {
+    if (!form[0].value || !form[1].value) {
+      console.log("Fechas vacias")
+    }else{
+      console.log("Fechas puestas")
+    };
+
+  })
+
+
+  // categorias y customer estan ocultas de forma predeterminada y el boton de create
 </script>
