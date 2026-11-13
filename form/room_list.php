@@ -8,7 +8,10 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
       <p>Ciudad: </p>
       <select name="city">
         <option></option>
-        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php"); ?>
+        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php");
+        foreach ($hotel as $hot) { ?>
+          <option value="<?= $hot["hotel_id"] ?>"><?= $hot["city"] ?></option>
+        <?php } ?>
       </select>
     </label>
     <label class="flex">

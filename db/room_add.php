@@ -2,21 +2,23 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 require("./db_connect.php");
 
-if ($_SERVER["REQUEST_METHOD"] === "get") {
-  $hotel_id = $_GET["hotel_id"];
-  $room_number = $_GET["room_number"];
-  $category_id = $_GET["category_id"];
 
-  $sql = "INSERT INTO `004_room`(hotel_id, room_number, category_id) VALUES ('$hotel_id', '$room_number', '$category_id')";
+$stmt = $conn->prepare("INSERT INTO `004_room`(hotel_id, room_number, category_id) VALUES (?,?,?)");
+$stmt->bind_param("iii", $_POST["hotel_id"], $_POST["room_number"], $_POST["category_id"]);
+$executed = $stmt->execute();
+?>
 
-  $result = mysqli_query($conn, $sql);
+<div class="<?= $execute_container ?>">
+  <?php if ($executed && $stmt->affected_rows > 0) { ?>
+    <div class="<?= $execute_correct ?>">
+      <p>Se ha añadido la habitacion</p>
+    </div>
+  <?php } else { ?>
+    <div class="<?= $execute_error ?>">
+      <p>No se ha añadido la habitacion</p>
+    </div>
+  <?php } ?>
+</div>
 
-  if ($result) {
-    echo "Se ha añadido la habitacion";
-  } else {
-    echo "No se ha añadido la habitacion";
-  }
-}
 
-
-mysqli_close($conn);
+<?php mysqli_close($conn); ?>

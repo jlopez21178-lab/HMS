@@ -56,6 +56,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
         <th>Days</th>
         <th>Category</th>
         <th>Cost</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>

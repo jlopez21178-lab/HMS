@@ -1,12 +1,12 @@
 <div class="<?= $form_container ?>">
-  <form id="form" class=" <?= $form ?>">
+  <form id="form" class=" <?= $form ?>" method="post">
     <h1 class="text-3xl">Customer file</h1>
     <div>
       <h1 class="<?= $title ?>">Personal info</h1>
       <div class="<?= $section ?>">
         <label>
           <p>Name & Surname:</p>
-          <input type="text" name="full_name">
+          <input type="text" name="full_name" value="<?= $full_name ?>">
         </label>
         <label>
           <p>Phone:</p>

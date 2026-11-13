@@ -5,8 +5,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 ?>
 
 <div class="<?= $form_container ?>">
-
-  <form action="/student004/hotel/db/room_add.php" method="get" class="<?= $form ?>">
+  <form action="/student004/hotel/db/room_add.php" method="POST" class="<?= $form ?>">
 
     <h1 class="text-3xl">Add room</h1>
 
@@ -20,10 +19,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <section class="<?= $section ?>">
       <label>
         <p>Hotel:</p>
-        <select name="city" id="city" class="grow">
+        <select name="hotel_id" id="city" class="grow">
           <option>Select a hotel</option>
           <?php foreach ($hotel as $hot) { ?>
-            <option><?= $hot["city"] ?></option>
+            <option value="<?= $hot["hotel_id"] ?>"><?= $hot["city"] ?></option>
           <?php } ?>
         </select>
       </label>
@@ -32,10 +31,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <section class="<?= $section ?>">
       <label>
         <p>Category:</p>
-        <select name="category_code" id="category_code" class="grow">
+        <select name="category_id" id="category_id" class="grow">
           <option>Select a category</option>
           <?php foreach ($category as $cat) { ?>
-            <option><?= $cat["category_code"] ?></option>
+            <option value="<?= $cat["category_id"] ?>"><?= $cat["category_code"] ?></option>
           <?php } ?>
         </select>
       </label>

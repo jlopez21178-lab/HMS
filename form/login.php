@@ -1,22 +1,29 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/login.php") ?>
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/login.php")
+
+?>
 
 <div class="landscape grow flex justify-center items-center">
-  <form action="" class="bg-purple-900/20 backdrop-blur p-20 border-1 border-purple-300/50 rounded-lg *:text-purple-100/90 flex flex-col align-center gap-5">
+  <form action="" method="post" class="<?= $cus_form ?>">
+    <h1 class="text-2xl text-purple-200">Log In</h1>
 
-    <?php if ($error) { ?>
-      <p class=" bg-black"><?= $error ?></p>
+    <?php if ($not_found) { ?>
+      <div>
+        <p class="text-red-500 "><?= $not_found ?></p>
+      </div>
     <?php } ?>
 
-    <h1 class="text-2xl text-purple-200">Log In</h1>
     <label>
       <p>Email:</p>
-      <input type="text" name="email" id="email" required>
+      <input type="text" name="email" id="email" value="<?= $email ?>" required>
+      <p class="text-red-500"><?= $errors["email"] ?></p>
     </label>
     <label>
       <p>Password:</p>
-      <input type="password" name="password" id="password" required>
+      <input type="password" name="password" id="password" value="<?= $password ?>" required>
+      <p><?= $errors["password"] ?></p>
     </label>
-    <input id="submit" type="submit">
+    <input id="submit" type="submit" class="<?= $cus_action_button ?> self-center">
   </form>
 </div>

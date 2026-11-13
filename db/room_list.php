@@ -2,7 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_room_list.php");
 
-
+$type = "";
+$param = [];
 $sql = "SELECT * FROM `004_room` as room
         INNER JOIN `004_hotel` as hotel
           on hotel.hotel_id = room.hotel_id
@@ -10,17 +11,23 @@ $sql = "SELECT * FROM `004_room` as room
           on category.category_id = room.category_id
         WHERE 1 = 1";
 
-if (isset($_GET["city"]) && $_GET["city"] != "") {
-  $sql .= " AND hotel.city = '" . $_GET["city"] . "'";
+if (isset($_GET["hotel_id"]) && $_GET["hotel_id"] != "") {
+  $sql .= " AND hotel.city = ?";
+  $type .= "i";
+  $param[] = $_GET["hotel_id"];
 }
 
-if (isset($_GET["category_code"]) && $_GET["category_code"] != "") {
-  $sql .= " AND category.code = '" . $_GET["category_code"] . "'";
+if (isset($_GET["category_id"]) && $_GET["category_id"] != "") {
+  $sql .= " AND category.category_id = ?";
+  $type .= "i";
+  $param[] = $_GET["category_id"];
 }
 
-$res = mysqli_query($conn, $sql);
+$stmt = $conn->prepare($sql);
 
-$rooms = mysqli_fetch_all($res, MYSQLI_ASSOC);
+if (!empty($param)) $stmt->bind_param($type, ...$param);
+$stmt->execute();
+$rooms = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 mysqli_close($conn);
 
 // Si hay resultados el array $rooms sera mayor a 0, 

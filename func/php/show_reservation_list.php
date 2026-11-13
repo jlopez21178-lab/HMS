@@ -1,6 +1,7 @@
  <?php function show_reservation_list($res)
   {
     global $table_row_data;
+    global $action_button;
 
     // calcular total dias
     $date_in = new DateTime($res["date_in"]);
@@ -23,12 +24,13 @@
        </div>
      </td>
      <td><?= $res["full_name"]  ?></td>
-     <td><?= ((isset($res["room_id"])) ? $res["room_id"] : "") ?></td>
-     <td><?= ((isset($res["room_number"])) ? $res["room_number"] : "") ?></td>
+     <td><?= ($res["room_id"] ?? "") ?></td>
+     <td><?= ($res["room_number"] ?? "") ?></td>
      <td><?= $res["date_in"] ?></td>
      <td><?= $res["date_out"] ?></td>
      <td><?= $days->days ?></td>
      <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
      <td></td>
+     <td><a href="" class="<?= $action_button ?>">Edit</a></td>
    </tr>
  <?php } ?>

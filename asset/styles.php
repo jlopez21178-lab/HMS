@@ -5,6 +5,11 @@
 
 
 <?php
+
+// customers styles
+$cus_form = "flex flex-col  items-center backdrop-blur-sm rounded-xl h-fit w-fit border-1 border-purple-200 bg-purple-500/20 gap-10 p-10 text-white";
+$cus_action_button = "p-3 ring-1 ring-purple-600 cursor-pointer w-fit rounded-lg text-purple-50 hover:bg-purple-600 transition hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-purple-400";
+
 // rutas
 $formPath = "/student004/hotel/form";
 $homePath = ($_SESSION["userRole"] == "guest" || $_SESSION["userRole"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
@@ -13,7 +18,6 @@ $homePath = ($_SESSION["userRole"] == "guest" || $_SESSION["userRole"] == "custo
 $table = "table-auto text-center mt-5 w-full";
 $table_row_head = "divide-x-1 divide-purple-600/30";
 $table_row_data = "border-t-1 border-purple-600/30 hover:bg-purple-600/10 divide-x-1 divide-purple-600/30 [&>td]:p-2";
-$table_button = "p-1 bg-purple-400/30 hover:cursor-pointer hover:bg-purple-400/40";
 
 // Form filtros
 $filter = "flex gap-5 p-5 border-1 border-purple-200 rounded-lg";
@@ -30,6 +34,7 @@ $btn_container = "flex justify-around w-[100%] mt-[30%]";
 $btn_accept = $btn . " bg-blue-400/30 hover:bg-blue-400/50";
 $btn_cancel = $btn . " bg-red-400/30 hover:bg-red-400/50";
 $btn_delete = "";
+$action_button = "p-1 bg-purple-400/30 hover:cursor-pointer hover:bg-purple-400/40";
 
 // comando sql ejecutado correctamente / error
 $execute_container = "flex flex-col justify-center items-center grow";
