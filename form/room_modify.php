@@ -4,9 +4,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_room.php"
 ?>
 
 <div class="<?= $form_container ?>">
-  <form id="form-room-info" class="<?= $form ?>">
+  <form action="/student004/hotel/db/room_update.php" method="post" id="form-room-info" class="<?= $form ?>">
 
     <h1 class="text-3xl">Modify room - <?= $_GET["room_id"] ?></h1>
+    <input type="text" name="room_id" value="<?= $_GET["room_id"] ?>" hidden>
 
     <section class="<?= $section ?>">
       <label>
@@ -50,11 +51,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_room.php"
 
   deleteBtn.addEventListener("click", () => {
     window.location.href = "/student004/hotel/db/room_delete.php?room_id=" + <?= $_GET["room_id"] ?>;
-  })
-
-  updateBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "/student004/hotel/db/room_update.php?room_id=" + <?= $_GET["room_id"] ?>;
   })
 </script>
 

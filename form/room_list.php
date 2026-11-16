@@ -3,24 +3,24 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 ?>
 
 <div class="grow p-5">
-  <form id="filter-form" class="<?= $filter ?> !flex-row">
-    <label class="flex">
-      <p>Ciudad: </p>
-      <select name="city">
+  <form method="post" id="filter-form" class="<?= $filter ?> !flex-row">
+    <label class="<?= $filter_input ?>">
+      <p>City: </p>
+      <select name="hotel_id">
         <option></option>
         <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php");
         foreach ($hotel as $hot) { ?>
-          <option value="<?= $hot["hotel_id"] ?>"><?= $hot["city"] ?></option>
+          <option value="<?= $hot["hotel_id"] ?>" <?= ((isset($_POST["hotel_id"]) && $hot["hotel_id"] == $_POST["hotel_id"]) ? "selected" : "") ?>><?= $hot["city"] ?></option>
         <?php } ?>
       </select>
     </label>
-    <label class="flex">
-      <p>Categoria: </p>
-      <select name="category_code">
+    <label class="<?= $filter_input ?>">
+      <p>Category: </p>
+      <select name="category_id">
         <option></option>
         <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
         foreach ($category as $cat) { ?>
-          <option <?= ((isset($_GET["category_code"]) && $cat["category_code"] == $_GET["category_code"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
+          <option value="<?= $cat["category_id"] ?>" <?= ((isset($_POST["category_id"]) && $cat["category_id"] == $_POST["category_id"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
         <?php } ?>
       </select>
     </label>

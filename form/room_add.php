@@ -12,14 +12,14 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <section class="<?= $section ?>">
       <label>
         <p>Room number:</p>
-        <input type="text" name="room_number" placeholder="Numero de habitacion">
+        <input type="text" name="room_number" placeholder="Numero de habitacion" required>
       </label>
     </section>
 
     <section class="<?= $section ?>">
       <label>
         <p>Hotel:</p>
-        <select name="hotel_id" id="city" class="grow">
+        <select name="hotel_id" id="city" class="grow" required>
           <option>Select a hotel</option>
           <?php foreach ($hotel as $hot) { ?>
             <option value="<?= $hot["hotel_id"] ?>"><?= $hot["city"] ?></option>
@@ -31,7 +31,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
     <section class="<?= $section ?>">
       <label>
         <p>Category:</p>
-        <select name="category_id" id="category_id" class="grow">
+        <select name="category_id" id="category_id" class="grow" required>
           <option>Select a category</option>
           <?php foreach ($category as $cat) { ?>
             <option value="<?= $cat["category_id"] ?>"><?= $cat["category_code"] ?></option>

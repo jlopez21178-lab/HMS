@@ -21,6 +21,7 @@ $table_row_data = "border-t-1 border-purple-600/30 hover:bg-purple-600/10 divide
 
 // Form filtros
 $filter = "flex gap-5 p-5 border-1 border-purple-200 rounded-lg";
+$filter_input = "flex items-center gap-2";
 
 // Form datos
 $form = "[&>div]:mt-5 max-w-[50vw] grow";

@@ -11,21 +11,22 @@ $sql = "SELECT * FROM `004_room` as room
           on category.category_id = room.category_id
         WHERE 1 = 1";
 
-if (isset($_GET["hotel_id"]) && $_GET["hotel_id"] != "") {
-  $sql .= " AND hotel.city = ?";
+if (isset($_POST["hotel_id"]) && $_POST["hotel_id"] != "") {
+  $sql .= " AND hotel.hotel_id = ?";
   $type .= "i";
-  $param[] = $_GET["hotel_id"];
+  $param[] = $_POST["hotel_id"];
 }
 
-if (isset($_GET["category_id"]) && $_GET["category_id"] != "") {
+if (isset($_POST["category_id"]) && $_POST["category_id"] != "") {
   $sql .= " AND category.category_id = ?";
   $type .= "i";
-  $param[] = $_GET["category_id"];
+  $param[] = $_POST["category_id"];
 }
 
 $stmt = $conn->prepare($sql);
 
 if (!empty($param)) $stmt->bind_param($type, ...$param);
+
 $stmt->execute();
 $rooms = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 mysqli_close($conn);
