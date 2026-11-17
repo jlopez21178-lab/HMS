@@ -12,7 +12,7 @@ $cus_action_button = "p-3 ring-1 ring-purple-600 cursor-pointer w-fit rounded-lg
 
 // rutas
 $formPath = "/student004/hotel/form";
-$homePath = ($_SESSION["userRole"] == "guest" || $_SESSION["userRole"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
+$homePath = ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
 
 // Tablas
 $table = "table-auto text-center mt-5 w-full";

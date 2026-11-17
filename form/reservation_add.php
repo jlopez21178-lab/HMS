@@ -22,7 +22,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
         <div>
           <label>
             <p>Location:</p>
-            <p name="hotel_id"><?= $_SESSION["worker_workplace"] ?></p>
+            <p name="hotel_id"><?= $_SESSION["user_workplace"] ?></p>
           </label>
           <p>Work in progress...</p>
           <!-- TODO reservation info, like ubication, type of creation (in reception, phone call...) -->

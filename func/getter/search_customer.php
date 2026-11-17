@@ -29,3 +29,4 @@ $stmt->execute();
 
 $customer_list = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 echo json_encode($customer_list);
+mysqli_close($conn);

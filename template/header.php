@@ -48,7 +48,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
         </div>
       <?php } else { ?>
         <div class="flex gap-2">
-          <a href="/student004/hotel/form/account.php" class="text-white flex items-center"><i class="ph-thin ph-user-circle text-white text-2xl"></i>Account - <?= $_SESSION["userRole"] ?></a>
+          <a href="/student004/hotel/form/account.php" class="text-white flex items-center"><i class="ph-thin ph-user-circle text-white text-2xl"></i>Account - <?= $_SESSION["user_role"] ?></a>
           <a href="/student004/hotel/db/logout.php" class="text-white flex items-center"><i class="ph-thin ph-sign-out text-red-300 text-2xl"></i>Log Out</a>
         </div>
       <?php } ?>

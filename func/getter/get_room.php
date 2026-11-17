@@ -14,3 +14,4 @@ $stmt = $conn->prepare("SELECT room.*, hotel.city, cat.category_code
 $stmt->bind_param("i", $_GET["room_id"]);
 $stmt->execute();
 $room = $stmt->get_result()->fetch_assoc();
+mysqli_close($conn);

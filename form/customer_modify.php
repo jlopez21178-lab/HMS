@@ -1,5 +1,14 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+
+$full_name = $_POST["full_name"] ?? "";
+$phone = $_POST["phone"] ?? "";
+$email = $_POST["email"] ?? "";
+$nationality = $_POST["nationality"] ?? "";
+$identity_number = $_POST["identity_number"] ?? "";
+$birthdate = $_POST["birthdate"] ?? "";
+$expire_date = $_POST["id_expire_date"] ?? "";
+
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.php");
 ?>
 

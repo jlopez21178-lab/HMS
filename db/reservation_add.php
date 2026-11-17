@@ -55,3 +55,6 @@ $stmt->execute();
 
 // Si es mayor a 0 las filas afectadas significa que se ha insertado la reserva
 echo json_encode(["successful" => ($stmt->affected_rows > 0)]);
+
+
+mysqli_close($conn);

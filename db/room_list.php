@@ -25,7 +25,7 @@ if (isset($_POST["category_id"]) && $_POST["category_id"] != "") {
   $param[] = $_POST["category_id"];
 }
 
-$sql .= " ORDER BY hotel.hotel_id, CAST(room.room_number AS UNSIGNED)"; // LIMIT 10 OFFSET 10";
+$sql .= " ORDER BY hotel.hotel_id, CAST(room.room_number AS UNSIGNED)";
 
 $stmt = $conn->prepare($sql);
 

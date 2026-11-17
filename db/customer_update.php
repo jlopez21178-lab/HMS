@@ -32,7 +32,9 @@ $stmt->bind_param(
 $executed = $stmt->execute();
 // Obtener confirmacion
 
-$res = $stmt->affected_rows; ?>
+$res = $stmt->affected_rows; 
+mysqli_close($conn);
+?>
 
 <div class="<?= $execute_container ?>">
   <?php if ($executed && $res > 0) { ?>

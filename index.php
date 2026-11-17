@@ -16,4 +16,5 @@
     <input type="submit" value="Reservar" class="<?= $cus_action_button ?>">
   </form>
 </section>
+
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php") ?>

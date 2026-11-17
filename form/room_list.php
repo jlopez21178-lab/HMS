@@ -1,5 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
+
 ?>
 
 <div class="grow p-5">
@@ -8,8 +11,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
       <p>City: </p>
       <select name="hotel_id">
         <option></option>
-        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php");
-        foreach ($hotel as $hot) { ?>
+        <?php foreach ($hotel as $hot) { ?>
           <option value="<?= $hot["hotel_id"] ?>" <?= ((isset($_POST["hotel_id"]) && $hot["hotel_id"] == $_POST["hotel_id"]) ? "selected" : "") ?>><?= $hot["city"] ?></option>
         <?php } ?>
       </select>
@@ -19,8 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
       <!-- TODO poder seleccionar mas de una categoria -->
       <select name="category_id">
         <option></option>
-        <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
-        foreach ($category as $cat) { ?>
+        <?php foreach ($category as $cat) { ?>
           <option value="<?= $cat["category_id"] ?>" <?= ((isset($_POST["category_id"]) && $cat["category_id"] == $_POST["category_id"]) ? "selected" : "") ?>> <?= $cat["category_code"] ?> </option>
         <?php } ?>
       </select>

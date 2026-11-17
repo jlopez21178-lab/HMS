@@ -23,6 +23,8 @@ if (!empty($param)) $stmt->bind_param($type, ...$param);
 $stmt->execute();
 $customer = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
+mysqli_close($conn);
+
 foreach ($customer as $cus) {
   show_customer_list($cus);
 }

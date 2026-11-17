@@ -3,14 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
 $conn = getConnection();
 
-$full_name = $_POST["full_name"] ?? "";
-$phone = $_POST["phone"] ?? "";
-$email = $_POST["email"] ?? "";
-$nationality = $_POST["nationality"] ?? "";
-$identity_number = $_POST["identity_number"] ?? "";
-$birthdate = $_POST["birthdate"] ?? "";
-$expire_date = $_POST["id_expire_date"] ?? "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (preg_match("/^[a-zA-Z\s]+$/", $full_name)) {
@@ -36,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->execute();
 
   $res = $stmt->affected_rows;
+
+  mysqli_close($conn);
 ?>
 
   <div class="<?= $execute_container ?>">
