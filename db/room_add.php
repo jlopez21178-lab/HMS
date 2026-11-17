@@ -1,6 +1,8 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-require("./db_connect.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+
+$conn = getConnection();
 
 
 $stmt = $conn->prepare("INSERT INTO `004_room`(hotel_id, room_number, category_id) VALUES (?,?,?)");

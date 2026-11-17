@@ -2,6 +2,8 @@
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_reservation_list.php");
 
+$conn = getConnection();
+
 $type = "";
 $param = [];
 $sql = "SELECT *, 

@@ -2,6 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_customer_list.php");
 
+$conn = getConnection();
+
 $type = "";
 $param = [];
 $sql = "SELECT * FROM `004_customer` AS cus WHERE 1";

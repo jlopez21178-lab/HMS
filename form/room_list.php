@@ -16,11 +16,12 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
     </label>
     <label class="<?= $filter_input ?>">
       <p>Category: </p>
+      <!-- TODO poder seleccionar mas de una categoria -->
       <select name="category_id">
         <option></option>
         <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
         foreach ($category as $cat) { ?>
-          <option value="<?= $cat["category_id"] ?>" <?= ((isset($_POST["category_id"]) && $cat["category_id"] == $_POST["category_id"]) ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
+          <option value="<?= $cat["category_id"] ?>" <?= ((isset($_POST["category_id"]) && $cat["category_id"] == $_POST["category_id"]) ? "selected" : "") ?>> <?= $cat["category_code"] ?> </option>
         <?php } ?>
       </select>
     </label>

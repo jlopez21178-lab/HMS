@@ -1,6 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
+$conn = getConnection();
+
 $stmt = $conn->prepare("SELECT room.*, hotel.city, cat.category_code 
                         FROM `004_room` AS room
                         INNER JOIN `004_hotel` AS hotel

@@ -1,7 +1,7 @@
 <?php
 session_start();
 // iniciar el rol del usuario a guest si no esta inciado
-if (!isset($_SESSION["userRole"])) $_SESSION["userRole"] = "guest";
+if (!isset($_SESSION["user_role"])) $_SESSION["user_role"] = "guest";
 
 $lenguages = ["ES", "CAT", "EN", "DE"];
 
@@ -41,7 +41,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
         </form>
       </div>
       <a href="<?= $homePath ?>" class="text-white">Aurelia Grand Hotel</a>
-      <?php if ($_SESSION["userRole"] == "guest") { ?>
+      <?php if ($_SESSION["user_role"] == "guest") { ?>
         <div class="text-white ">
           <a href="/student004/hotel/form/login.php" class="cursor-pointer rounded-lg ring-1 p-2 ring-purple-600 hover:ring-purple-500">Log In</a>
           <a href="/student004/hotel/form/signup.php" class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</a>

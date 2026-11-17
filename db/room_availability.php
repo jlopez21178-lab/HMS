@@ -1,8 +1,9 @@
 <?php
-
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_room.php");
+
+$conn = getConnection();
 
 // GET variables
 $date_in = $_GET["date_in"];

@@ -1,4 +1,7 @@
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+<?php
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+
+$conn = getConnection();
 
 $sql = "SELECT * FROM `004_category` WHERE 1 = 1";
 $type = "";

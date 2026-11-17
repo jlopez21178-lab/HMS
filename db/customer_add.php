@@ -1,6 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
+$conn = getConnection();
+
 $full_name = $_POST["full_name"] ?? "";
 $phone = $_POST["phone"] ?? "";
 $email = $_POST["email"] ?? "";

@@ -1,0 +1,37 @@
+{
+  "folder-color.pathColors": [
+    {
+      "folderPath": "hotel\\db",
+      "color": "foldercolorizer.color_afaf00",
+      "badge": "db"
+    },
+    {
+      "folderPath": "hotel\\form",
+      "color": "foldercolorizer.color_d75fff",
+      "badge": "fm"
+    },
+    {
+      "folderPath": "hotel\\template",
+      "color": "foldercolorizer.color_878700"
+    },
+    {
+      "folderPath": "hotel\\template\\error",
+      "color": "foldercolorizer.color_d70000",
+      "badge": "er"
+    },
+    {
+      "folderPath": "hotel\\func\\getter",
+      "color": "foldercolorizer.color_5faf87"
+    },
+    {
+      "folderPath": "hotel\\func\\js",
+      "color": "foldercolorizer.color_5fd700",
+      "badge": "js"
+    },
+    {
+      "folderPath": "hotel\\func\\php",
+      "color": "foldercolorizer.color_00ffd7",
+      "badge": "ph"
+    }
+  ]
+}

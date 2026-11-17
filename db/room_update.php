@@ -2,9 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
-echo "Room id: " . $_POST["room_id"] ;
-echo "Category id: " . $_POST["category_id"] ;
-echo "Room number: " . $_POST["room_number"] ;
+$conn = getConnection();
 
 $stmt = $conn->prepare("UPDATE `004_room` AS room
                         SET room.room_number = ?,

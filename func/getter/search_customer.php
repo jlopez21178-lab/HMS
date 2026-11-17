@@ -1,6 +1,8 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
+$conn = getConnection();
+
 header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents("php://input"), true);

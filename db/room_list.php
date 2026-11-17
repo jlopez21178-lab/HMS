@@ -2,6 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_room_list.php");
 
+$conn = getConnection();
+
 $type = "";
 $param = [];
 $sql = "SELECT * FROM `004_room` as room
@@ -22,6 +24,8 @@ if (isset($_POST["category_id"]) && $_POST["category_id"] != "") {
   $type .= "i";
   $param[] = $_POST["category_id"];
 }
+
+$sql .= " ORDER BY hotel.hotel_id, CAST(room.room_number AS UNSIGNED)"; // LIMIT 10 OFFSET 10";
 
 $stmt = $conn->prepare($sql);
 

@@ -8,6 +8,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_room.php"
 
     <h1 class="text-3xl">Modify room - <?= $_GET["room_id"] ?></h1>
     <input type="text" name="room_id" value="<?= $_GET["room_id"] ?>" hidden>
+    <input type="text" name="hotel_id" value="<?= $room["hotel_id"] ?>" hidden>
 
     <section class="<?= $section ?>">
       <label>
@@ -26,10 +27,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_room.php"
     <section class="<?= $section ?>">
       <label>
         <p>Category:</p>
-        <select name="category_code">
+        <select name="category_id">
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
           foreach ($category as $cat) { ?>
-            <option <?= ($cat["category_code"] == $room["category_code"] ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
+            <option value="<?= $cat["category_id"] ?>" <?= ($cat["category_code"] == $room["category_code"] ? "selected" : "") ?>><?= $cat["category_code"] ?></option>
           <?php } ?>
         </select>
       </label>

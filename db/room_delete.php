@@ -2,6 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
+$conn = getConnection();
+
 $stmt = $conn->prepare('DELETE FROM `004_room` WHERE room_id = ?');
 $stmt->bind_param("i", $_GET["room_id"]);
 $executed = $stmt->execute();

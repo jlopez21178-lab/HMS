@@ -20,7 +20,11 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
           </label>
         </div>
         <div>
-          <p>Work in progress</p>
+          <label>
+            <p>Location:</p>
+            <p name="hotel_id"><?= $_SESSION["worker_workplace"] ?></p>
+          </label>
+          <p>Work in progress...</p>
           <!-- TODO reservation info, like ubication, type of creation (in reception, phone call...) -->
         </div>
       </div>
@@ -43,7 +47,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
       </label>
     </section>
 
-
     <section id="customer-information" class="<?= $section ?>">
       <h1 class="<?= $title ?>">Customer information</h1>
       <label>
@@ -59,7 +62,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
 
     <div class="<?= $btn_container ?>">
       <button id="cancel-btn" type="button" class="<?= $btn_cancel ?>">Cancel</button>
-      <!-- TODO solo te deja ver y/o clickar el boton de create cuando todos los datos son validos -->
       <button type="submit" id="create-btn" class="<?= $btn_accept ?>">Create</button>
     </div>
   </form>

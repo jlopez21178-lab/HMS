@@ -1,5 +1,8 @@
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/move_to.php");
+
+$conn = getConnection();
 
 $not_found = "";
 $email = $_POST["email"] ?? "";
@@ -28,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $stmt->get_result()->fetch_assoc();
 
     if ($user) {
-      $_SESSION["userRole"] = "customer";
-      $_SESSION["userId"] = $user["customer_id"];
+      $_SESSION["user_role"] = "customer";
+      $_SESSION["user_id"] = $user["customer_id"];
       move_to("/student004/hotel/index.php");
     } else {
       // Si no es cliente comprobar si es trabajador o se ha equivocado
@@ -46,11 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Executar
       $stmt->execute();
       // Obtener resultado
-      $user = $stmt->get_result()->fetch_assoc();
+      $worker = $stmt->get_result()->fetch_assoc();
 
-      if ($user) {
-        $_SESSION["userRole"] = $user["role"];
-        $_SESSION["userId"] = $user["worker_id"];
+      if ($worker) {
+        $_SESSION["user_role"] = $worker["role"];
+        $_SESSION["user_id"] = $worker["worker_id"];
+        $_SESSION["user_workplace"] = $worker["works_at"];
+
         move_to("/student004/hotel/bo_index.php");
       } else {
         $not_found = "No se ha encontrado una cuenta con esas credenciales";

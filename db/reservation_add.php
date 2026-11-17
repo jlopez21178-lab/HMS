@@ -1,6 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 
+$conn = getConnection();
+
 // common media type
 header("Content-Type: application/json");
 

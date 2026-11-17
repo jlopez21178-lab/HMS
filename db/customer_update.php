@@ -2,6 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 
+$conn = getConnection();
+
 // SQL statement
 $stmt = $conn->prepare("UPDATE `004_customer`
                         SET full_name = ?,
