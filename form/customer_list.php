@@ -1,5 +1,5 @@
 <?php 
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 ?>
 
 

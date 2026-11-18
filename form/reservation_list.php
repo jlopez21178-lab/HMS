@@ -1,6 +1,6 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_category.php");
 ?>
 
 
@@ -23,7 +23,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
           <input type="date" name="date_out">
         </label>
         <label>
-          <p>Categoria dada</p>
+          <p>Category given</p>
           <select name="category_given">
             <option></option>
             <?php
@@ -33,7 +33,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
           </select>
         </label>
         <label>
-          <p>Categoria cobrada</p>
+          <p>Category charged</p>
           <select name="category_charged">
             <option></option>
             <?php foreach ($category as $cat) { ?>
@@ -66,4 +66,4 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.
   </table>
 </div>
 
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php"); ?>

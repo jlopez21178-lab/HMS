@@ -1,6 +1,6 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/move_to.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
 
 $conn = getConnection();
 
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_id"] = $worker["worker_id"];
         $_SESSION["user_workplace"] = $worker["works_at"];
 
-        move_to("/student004/hotel/bo_index.php");
+        move_to($homePath);
       } else {
         $not_found = "No se ha encontrado una cuenta con esas credenciales";
       }

@@ -1,12 +1,12 @@
 <div class="<?= $form_container ?>">
   <form id="form" class=" <?= $form ?>" method="post">
     <h1 class="text-3xl">Customer file</h1>
-    <div>
+    <article>
       <h1 class="<?= $title ?>">Personal info</h1>
-      <div class="<?= $section ?>">
+      <section class="<?= $section ?>">
         <label>
           <p>Name & Surname:</p>
-          <input type="text" name="full_name" value="<?= $full_name ?>">
+          <input type="text" name="full_name" value="<?= $full_name ?? "" ?>">
         </label>
         <label>
           <p>Phone:</p>
@@ -16,11 +16,11 @@
           <p>Email:</p>
           <input type="text" name="email">
         </label>
-      </div>
-    </div>
-    <div>
+      </section>
+    </article>
+    <article>
       <h1 class="<?= $title ?>">Identification</h1>
-      <div class="<?= $section ?>">
+      <section class="<?= $section ?>">
         <label>
           <p>Nationality:</p>
           <select id="nationality" name="nationality"></select>
@@ -37,23 +37,23 @@
           <p>Expiracy:</p>
           <input type="date" name="id_expire_date">
         </label>
-      </div>
-    </div>
-    <div>
+      </section>
+    </article>
+    <article>
       <h1 class="<?= $title ?>">Addresses</h1>
-      <div class="<?= $section ?>">
+      <section class="<?= $section ?>">
         <!-- <button>Add new address</button> -->
         <table>
           Work in progress...
         </table>
-      </div>
-    </div>
-    <div>
+      </section>
+    </article>
+    <article>
       <h1 class="<?= $title ?>">History reservation</h1>
-      <div class="<?= $section ?>">
+      <section class="<?= $section ?>">
         Work in progress...
-      </div>
-    </div>
+      </section>
+    </article>
     <div class="<?= $btn_container ?>">
       <button id="cancelBtn" class="<?= $btn_cancel ?>">Cancel</button>
       <button id="acceptBtn" class="<?= $btn_accept ?>"></button>

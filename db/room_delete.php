@@ -1,6 +1,6 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
 $conn = getConnection();
 
@@ -23,4 +23,4 @@ mysqli_close($conn); ?>
   <?php } ?>
 </div>
 
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php");
+<?php  require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php");

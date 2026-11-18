@@ -1,6 +1,6 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 
 $conn = getConnection();
 

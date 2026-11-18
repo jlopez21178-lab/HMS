@@ -1,6 +1,6 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_customer_list.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_customer_list.php");
 
 $conn = getConnection();
 

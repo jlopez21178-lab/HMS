@@ -12,7 +12,7 @@ $cus_action_button = "p-3 ring-1 ring-purple-600 cursor-pointer w-fit rounded-lg
 
 // rutas
 $formPath = "/student004/hotel/form";
-$homePath = ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") ? "/student004/hotel/" : "/student004/hotel/bo_index.php";
+$homePath = "/student004/hotel/";
 
 // Tablas
 $table = "table-auto text-center mt-5 w-full";
@@ -24,7 +24,7 @@ $filter = "flex gap-5 p-5 border-1 border-purple-200 rounded-lg";
 $filter_input = "flex items-center gap-2";
 
 // Form datos
-$form = "[&>div]:mt-5 max-w-[50vw] grow";
+$form = "[&>article]:mt-5 max-w-[50vw] grow";
 $form_container = "p-5 grow flex  justify-center";
 $title = "border-b-1 border-purple-600/30 text-2xl";
 $section = "flex flex-col gap-10 mt-5 *:justify-between [&_input]:grow [&>*]:gap-10 [&>*]:flex [&>*]:items-center";
@@ -36,6 +36,9 @@ $btn_accept = $btn . " bg-blue-400/30 hover:bg-blue-400/50";
 $btn_cancel = $btn . " bg-red-400/30 hover:bg-red-400/50";
 $btn_delete = "";
 $action_button = "p-1 bg-purple-400/30 hover:cursor-pointer hover:bg-purple-400/40";
+
+// errores
+$error_text = "text-red-500/50";
 
 // comando sql ejecutado correctamente / error
 $execute_container = "flex flex-col justify-center items-center grow";

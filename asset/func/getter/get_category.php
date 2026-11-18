@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
 $conn = getConnection();
 
@@ -34,5 +34,13 @@ $category = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 if ($date_inserted) {
   header("Content-Type: application/json");
   echo json_encode($category);
+}
+
+
+function displayCategoryList($category)
+{
+  foreach ($category as $cat) { ?>
+    <option value="<?= $cat["category_id"] ?>" <?= (isset($_POST["category_id"])) && $_POST["category_id"] == $cat["category_id"] ? "selected" : "" ?>><?= $cat["category_code"] ?></option>
+<?php }
 }
 mysqli_close($conn);

@@ -1,7 +1,7 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_hotel.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/getter/get_category.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_hotel.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_category.php");
 
 ?>
 

@@ -1,7 +1,7 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/db_connect.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/func/php/show_room.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_room.php");
 
 $conn = getConnection();
 
@@ -29,4 +29,4 @@ echo "<section class='grow m-5 flex flex-col justify-center items-center gap-10'
 foreach ($rooms as $room)  show_room($room);
 echo "</section>";
 
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/footer.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php");

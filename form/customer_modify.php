@@ -1,5 +1,5 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 
 $full_name = $_POST["full_name"] ?? "";
 $phone = $_POST["phone"] ?? "";
@@ -9,7 +9,7 @@ $identity_number = $_POST["identity_number"] ?? "";
 $birthdate = $_POST["birthdate"] ?? "";
 $expire_date = $_POST["id_expire_date"] ?? "";
 
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/customer_file.php");
+ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_file.php");
 ?>
 
 <script>

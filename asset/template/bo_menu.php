@@ -3,6 +3,8 @@
         <summary>Rooms</summary>
         <a href="<?= $formPath . "/room_list.php" ?>" class="block">List</a>
         <a href="<?= $formPath . "/room_add.php" ?> " class="block">Add room</a>
+        <a href="<?= $formPath . "/room_img_modify.php" ?> " class="block">Modify img</a>
+
       </details>
       <details class="column hover:cursor-pointer">
         <summary>Customers</summary>

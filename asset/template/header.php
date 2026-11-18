@@ -55,3 +55,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
     </nav>
   </header>
   <main class="grow flex">
+
+    <?php
+    if ($_SESSION["user_role"] != "guest" || $_SESSION != "customer") {
+      require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/role_check.php");
+      require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/bo_menu.php");
+    }
