@@ -1,7 +1,7 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
- require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_room.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_room.php");
 
 $conn = getConnection();
 
@@ -9,19 +9,30 @@ $conn = getConnection();
 $date_in = $_GET["date_in"];
 $date_out = $_GET["date_out"];
 
+$type = "ss";
+$param = [$date_out, $date_in];
+
 // SQL command
-$sql = "SELECT hotel.hotel_id, hotel.city, category.category_id, category.category_name FROM 004_room as room
+$sql = "SELECT hotel.hotel_id, hotel.city, category.category_id, category.category_name, category.price_night FROM 004_room as room
         inner join 004_hotel as hotel 
           on hotel.hotel_id = room.hotel_id
         inner join 004_category as category 
           on category.category_id = room.category_id
         WHERE `room_id` NOT IN (SELECT room_id 
                                 FROM `004_reservation` AS res 
-                                WHERE res.date_in < '$date_out' AND res.date_out > '$date_in')
-        Group BY hotel.hotel_id, room.category_id;";
+                                WHERE res.date_in < ? AND res.date_out > ?)";
 
-$query = mysqli_query($conn, $sql);
-$rooms = mysqli_fetch_all($query, MYSQLI_ASSOC);
+if (isset($_GET["hotel_id"])) {
+  $sql .= " AND hotel.hotel_id = ?";
+  $type .= "i";
+  $param[] = $_GET["hotel_id"];
+}
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param($type, ...$param);
+$stmt->execute();
+$rooms = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
 mysqli_close($conn);
 
 

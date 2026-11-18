@@ -37,10 +37,13 @@ if ($date_inserted) {
 }
 
 
-function displayCategoryList($category)
+function displayCategoryList($category, $category_selected = null)
 {
+
+  $category_selected = $category_selected ?? $_POST["category_id"];
+
   foreach ($category as $cat) { ?>
-    <option value="<?= $cat["category_id"] ?>" <?= (isset($_POST["category_id"])) && $_POST["category_id"] == $cat["category_id"] ? "selected" : "" ?>><?= $cat["category_code"] ?></option>
+    <option value="<?= $cat["category_id"] ?>" <?= ($category_selected) && $category_selected == $cat["category_id"] ? "selected" : "" ?>><?= $cat["category_code"] ?></option>
 <?php }
 }
 mysqli_close($conn);

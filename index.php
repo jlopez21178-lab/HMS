@@ -2,6 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 
 if ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") {
+  require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_hotel.php");
 ?>
   <section class="landscape grow flex justify-center p-20">
     <form action="/student004/hotel/db/room_availability.php" method="get" class="<?= $cus_form ?> ">
@@ -15,6 +16,13 @@ if ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") {
         <input type="date" name="date_out" id="date_out" min="<?= date("Y-m-d") ?>" required />
       </label>
 
+      <label>
+        <p>Hotel:</p>
+        <select name="hotel_id">
+          <option>Select hotel or view all hotels</option>
+          <?= displayHotelList($hotel) ?>
+        </select>
+      </label>
       <input type="submit" value="Reservar" class="<?= $cus_action_button ?>">
     </form>
   </section>

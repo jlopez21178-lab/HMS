@@ -1,6 +1,6 @@
 <?php
 $error = ["hotel_id" => "", "category_id" => ""];
-$category_img = $_FILES["category_img"]["name"];
+$category_img = $_FILES["category_img"];
 $hotel_id = $_POST["hotel_id"];
 $category_id = $_POST["category_id"];
 

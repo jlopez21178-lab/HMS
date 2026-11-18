@@ -41,7 +41,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
         </form>
       </div>
       <a href="<?= $homePath ?>" class="text-white">Aurelia Grand Hotel</a>
-      <?php if ($_SESSION["user_role"] == "guest") { ?>
+      <?php if ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") { ?>
         <div class="text-white ">
           <a href="/student004/hotel/form/login.php" class="cursor-pointer rounded-lg ring-1 p-2 ring-purple-600 hover:ring-purple-500">Log In</a>
           <a href="/student004/hotel/form/signup.php" class="cursor-pointer bg-purple-600 p-2 rounded-lg hover:bg-purple-500">Sign up</a>
@@ -56,8 +56,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
   </header>
   <main class="grow flex">
 
+
     <?php
-    if ($_SESSION["user_role"] != "guest" || $_SESSION != "customer") {
+    if ($_SESSION["user_role"] != "guest" && $_SESSION["user_role"] != "customer") {
       require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/role_check.php");
       require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/bo_menu.php");
     }
