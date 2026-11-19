@@ -15,46 +15,57 @@ $sql = "SELECT *,
         LEFT JOIN `004_room` AS room
           ON res.room_id = room.room_id
         WHERE 1";
-if (isset($_POST["checkin"])) {
-  $sql .= " AND res.status  = 'ongoing' AND res.date_in = ?";
-  $type .= "s";
-  $param[] = date("Y-m-d");
-} else if (isset($_POST["ongoing"])) {
-  $sql .= " AND res.status  = 'ongoing'";
-} else if (isset($_POST["checkout"])) {
-  $sql .= " AND res.status  = 'ongoing' AND res.date_out = ?";
-  $type .= "s";
-  $param[] = date("Y-m-d");
-} else {
-  if (isset($_POST["date_in"]) && $_POST["date_in"] != "") {
-    $sql .= ' AND res.date_in = ?';
+
+$date_in = $_POST["date_in"] ?? "";
+$date_out = $_POST["date_out"] ?? "";
+
+switch ($_POST["quick_btn"] ?? "") {
+  case "checkin":
+    $sql .= " AND res.status  = 'ongoing' AND res.date_in = ?";
     $type .= "s";
-    $param[] = $_POST["date_in"];
-  }
+    $param[] = date("Y-m-d");
+    break;
+  case "ongoing":
+    $sql .= " AND res.status  = 'ongoing'";
 
-  if (isset($_POST["date_out"]) && $_POST["date_out"] != "") {
-    $sql .= ' AND res.date_in = ?';
+    break;
+  case "checkout":
+    $sql .= " AND res.status  = 'ongoing' AND res.date_out = ?";
     $type .= "s";
-    $param[] = $_POST["date_out"];
-  }
+    $param[] = date("Y-m-d");
+    break;
+  default:
+    if ($date_in) {
+      $sql .= ' AND res.date_in = ?';
+      $type .= "s";
+      $param[] = $date_in;
+    }
 
-  if (isset($_POST["category_given"]) && $_POST["category_given"] != "") {
-    $sql .= ' AND res.category_given = ?';
-    $type .= "i";
-    $param[] = $_POST["category_given"] . '"';
-  }
+    if ($date_out) {
+      $sql .= ' AND res.date_in = ?';
+      $type .= "s";
+      $param[] = $date_out;
+    }
 
-  if (isset($_POST["category_charged"]) && $_POST["category_charged"] != "") {
-    $sql .= ' AND res.category_charged = ?';
-    $type .= "i";
-    $param[] =  $_POST["category_charged"];
-  }
+    if (isset($_POST["category_given"]) && $_POST["category_given"] != "") {
+      $sql .= ' AND res.category_given = ?';
+      $type .= "i";
+      $param[] = $_POST["category_given"] . '"';
+    }
 
-  // si carga la pagina por primera vez no hay ningun status seleccionado por lo que ponemos de default las reservas en marcha
-  $status = $_POST["status"] ?? "ongoing";
-  $sql .= " AND res.status = ?";
-  $type .= "s";
-  $param[] = $status;
+    if (isset($_POST["category_charged"]) && $_POST["category_charged"] != "") {
+      $sql .= ' AND res.category_charged = ?';
+      $type .= "i";
+      $param[] =  $_POST["category_charged"];
+    }
+
+    // si carga la pagina por primera vez no hay ningun status seleccionado por lo que ponemos de default las reservas en marcha
+    $status = $_POST["status"] ?? "ongoing";
+    $sql .= " AND res.status = ?";
+    $type .= "s";
+    $param[] = $status;
+
+    break;
 }
 
 // el trabajador solo podra ver las reservas del hotel en el que trabaja

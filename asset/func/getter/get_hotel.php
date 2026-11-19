@@ -10,7 +10,7 @@ $hotel = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 function displayHotelList($hotel)
 {
   foreach ($hotel as $hot) { ?>
-    <option value="<?= $hot["hotel_id"] ?>"><?= $hot["city"] ?></option>
+    <option value="<?= $hot["hotel_id"] ?>" <?= (isset($_POST["hotel_id"]) && $_POST["hotel_id"] == $hot["hotel_id"] ? "selected" : "") ?>><?= $hot["city"] ?></option>
 <?php }
 }
 mysqli_close($conn);

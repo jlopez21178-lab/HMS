@@ -18,8 +18,8 @@ if ($_SESSION["user_role"] == "guest" || $_SESSION["user_role"] == "customer") {
 
       <label>
         <p>Hotel:</p>
-        <select name="hotel_id">
-          <option>Select hotel or view all hotels</option>
+        <select name="hotel_id" class="[&>option]:bg-black">
+          <option value="-1">Select hotel or view all hotels</option>
           <?= displayHotelList($hotel) ?>
         </select>
       </label>

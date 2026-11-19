@@ -60,7 +60,7 @@ $execute_error = "p-15 bg-red-400/30 rounded-lg";
   }
 
   .landscape {
-    background: url("/student004/hotel/img/hotel-landscape.jpg");
+    background: url("/student004/hotel/asset/img/hotel-landscape.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

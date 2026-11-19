@@ -18,15 +18,18 @@ $sql = "SELECT hotel.hotel_id, hotel.city, category.category_id, category.catego
           on hotel.hotel_id = room.hotel_id
         inner join 004_category as category 
           on category.category_id = room.category_id
-        WHERE `room_id` NOT IN (SELECT room_id 
+        WHERE (`room_id` NOT IN (SELECT room_id 
                                 FROM `004_reservation` AS res 
-                                WHERE res.date_in < ? AND res.date_out > ?)";
+                                WHERE res.date_in < ? AND res.date_out > ?))";
 
-if (isset($_GET["hotel_id"])) {
+// si hotel_id es -1 significa que el usuario no ha introducido ningun hotel para buscar
+if ($_GET["hotel_id"] != -1) {
   $sql .= " AND hotel.hotel_id = ?";
   $type .= "i";
   $param[] = $_GET["hotel_id"];
 }
+
+$sql .= " GROUP BY hotel.hotel_id, category.category_id ORDER BY category.category_id";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param($type, ...$param);

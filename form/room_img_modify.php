@@ -33,13 +33,12 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/room_img_add.php");
       </section>
       <section class="<?= $section ?>">
         <label class="<?= $btn ?> bg-purple-400/20">
-          <p>Select image to upload... <?= $category_img["name"] ?></p>
+          <p>Select image to upload... <?= $category_img["name"] ?? "" ?></p>
           <!-- TODO que se puede ver el nombre del fichero, eliminarlo... -->
           <input type="file" style="display: none;" name="category_img" accept="image/*">
         </label>
       </section>
     </article>
-    <!-- <?= $category_img ?> -->
 
     <input type="submit" value="Upload image" class="<?= $btn_accept ?> mt-10">
   </form>
