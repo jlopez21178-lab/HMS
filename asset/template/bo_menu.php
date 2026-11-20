@@ -1,19 +1,45 @@
-    <aside class="bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-[calc(100vh-100px)] overflow-y-auto min-w-max">
-      <details class="column hover:cursor-pointer ">
-        <summary>Rooms</summary>
-        <a href="<?= $formPath . "/room_list.php" ?>" class="block">List</a>
-        <a href="<?= $formPath . "/room_add.php" ?> " class="block">Add room</a>
-        <a href="<?= $formPath . "/room_img_modify.php" ?> " class="block">Modify img</a>
+<?php
+//  en la misma hoja que este el menu estara tambien el role_check.php por lo que cojere las variables directamente de ahi
 
-      </details>
-      <details class="column hover:cursor-pointer">
-        <summary>Customers</summary>
-        <a href="<?= $formPath . "/customer_list.php" ?>" class="block">List</a>
-        <a href="<?= $formPath . "/customer_add.php" ?> " class="block">Add client</a>
-      </details>
-      <details class="column hover:cursor-pointer">
-        <summary>Reservations</summary>
-        <a href="<?= $formPath . "/reservation_list.php" ?>" class="block">List</a>
-        <a href="<?= $formPath . "/reservation_add.php" ?> " class="block">New reservation</a>
-      </details>
-    </aside>
+$room_nav = ["room_list.php" => "List", "room_add.php" => "Add room", "room_img_modify.php" => "Modify category image"];
+
+$client_nav = ["customer_list.php" => "List", "customer_add.php" => "Add client"];
+
+$reservation_nav = ["reservation_list.php" => "List", "reservation_add.php" => "New reservation"];
+
+function checkNavAccess($list)
+{
+  global $role_list;
+  global $form_path;
+  foreach ($list as $file => $name) {
+    $page_permit_level = $role_list[$file] ?? 10;
+
+    if ($page_permit_level <= $_SESSION["user_role_level"]) { ?>
+      <a href="<?= $form_path . "/" . $file ?>"> <?= $name ?></a>
+<?php
+    }
+  }
+}
+?>
+
+<aside class="<?= $menu ?>">
+  <details>
+    <summary>Rooms</summary>
+    <?= checkNavAccess($room_nav); ?>
+  </details>
+  <details>
+    <summary>Customers</summary>
+    <?= checkNavAccess($client_nav); ?>
+  </details>
+  <details>
+    <summary>Reservations</summary>
+    <?= checkNavAccess($reservation_nav); ?>
+  </details>
+  <?php if ($_SESSION["user_role"] == "admin") { ?>
+    <details>
+      <summary>Errors</summary>
+      <a href="/student004/hotel/asset/template/error/403.php">403</a>
+      <a href="/student004/hotel/asset/template/error/404.php">404</a>
+    </details>
+  <?php } ?>
+</aside>

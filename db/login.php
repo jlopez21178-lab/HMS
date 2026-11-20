@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   {
     $file = $_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/log/user_entry.txt";
     $handler = fopen($file, "a");
-    $content = "User:" . $_SESSION["user_id"]  . (($worker) ? (" - Works at: " . $_SESSION["user_workplace"]) : "") . " - Role: " . $_SESSION["user_role"] . " - Time: " . date("Y-m-d H:i:s") . "\n";
+    $content = date("[Y-m-d H:i:s]") . " " . $_SESSION["user_id"]  . ":" . $_SESSION["user_role"] . ":" . $_SESSION["user_level_role"] . ":" . (($worker) ? ($_SESSION["user_workplace"]) : "") . "\n";
     fwrite($handler, $content);
   }
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
       $_SESSION["user_role"] = "customer";
       $_SESSION["user_id"] = $user["customer_id"];
-
+      $_SESSION["user_level_role"] = -1;
       addUserLog();
       move_to("/student004/hotel/index.php");
     } else {
@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Preparar consulta para trabajadores
       $stmt = $conn->prepare("SELECT * 
                         FROM `004_worker` AS worker 
+                        INNER JOIN `004_role` AS rol ON rol.role_id = worker.role_id
                         WHERE worker.email = ? 
                         AND worker.password = ?");
 
@@ -65,9 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $worker = $stmt->get_result()->fetch_assoc();
 
       if ($worker) {
-        $_SESSION["user_role"] = $worker["role"];
+        $_SESSION["user_role"] = $worker["role_name"];
         $_SESSION["user_id"] = $worker["worker_id"];
         $_SESSION["user_workplace"] = $worker["works_at"];
+        $_SESSION["user_role_level"] = $worker["role_level"];
 
         addUserLog(true);
         move_to($homePath);

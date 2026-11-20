@@ -26,6 +26,16 @@
           <select id="nationality" name="nationality"></select>
         </label>
         <label>
+          <p>Document:</p>
+          <select name="document">
+            <option value="-1">Select document type</option>
+            <option value="dni">DNI</option>
+            <option value="nie">NIE</option>
+            <option value="passport">Passport</option>
+            <option value="driving_license">Driving licence</option>
+          </select>
+        </label>
+        <label>
           <p>Identity number:</p>
           <input type="text" name="identity_number">
         </label>

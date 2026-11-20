@@ -8,7 +8,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
 
 <div class="p-5 grow">
   <form method="post" class="<?= $filter ?> flex-col">
-    <div>
+    <div class="flex justify-between">
       <div class="flex gap-5">
         <button name="quick_btn" value="checkin" class="<?= $btn ?> bg-fuchsia-500/30 hover:bg-fuchsia-500/40">Check In</button>
         <button name="quick_btn" value="ongoing" class="<?= $btn ?> bg-green-500/30 hover:bg-green-500/40">Ongoing</button>
@@ -94,7 +94,11 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
   const showFilters = document.getElementById("advanced-filters-btn");
   const filters = document.getElementById("advanced-filters");
 
-  showFilters.addEventListener("click", filters.hidden = !filters.hidden);
+  filters.hidden = true;
+
+  showFilters.addEventListener("click", () => {
+    filters.hidden = !filters.hidden
+  });
 </script>
 
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php"); ?>

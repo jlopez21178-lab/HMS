@@ -84,10 +84,8 @@ $reservation = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 mysqli_close($conn);
 
 if (count($reservation) > 0) {
-
-  foreach ($reservation as $res) {
+  foreach ($reservation as $res)
     show_reservation_list($res);
-  }
 } else {
   echo "<tr><td colspan='10'>No reservation founded</td></tr>";
 }

@@ -1,6 +1,6 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
- require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 
 $conn = getConnection();
 
@@ -28,11 +28,12 @@ $stmt->bind_param(
   $_GET["id_expire_date"],
   $_GET["customer_id"]
 );
+
 // Ejecutar sql
 $executed = $stmt->execute();
 // Obtener confirmacion
 
-$res = $stmt->affected_rows; 
+$res = $stmt->affected_rows;
 mysqli_close($conn);
 ?>
 

@@ -11,7 +11,7 @@ $cus_form = "flex flex-col  items-center backdrop-blur-sm rounded-xl h-fit w-fit
 $cus_action_button = "p-3 ring-1 ring-purple-600 cursor-pointer w-fit rounded-lg text-purple-50 hover:bg-purple-600 transition hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-purple-400";
 
 // rutas
-$formPath = "/student004/hotel/form";
+$form_path = "/student004/hotel/form";
 $homePath = "/student004/hotel/";
 
 // Tablas
@@ -44,6 +44,9 @@ $error_text = "text-red-500/50";
 $execute_container = "flex flex-col justify-center items-center grow";
 $execute_correct = "p-15 bg-green-400/30 rounded-lg ";
 $execute_error = "p-15 bg-red-400/30 rounded-lg";
+
+// menu lateral
+$menu = "bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-[calc(100vh-100px)] overflow-y-auto min-w-max  [&>details]:mb-3 [&>*>a]:block";
 ?>
 
 <!-- CSS -->

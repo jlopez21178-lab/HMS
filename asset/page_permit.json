@@ -1,0 +1,11 @@
+{
+  "index.php": null,
+  "login.php": null,
+  "logout.php": null,
+  "room_availability.php": null,
+  "room_delete.php": 60,
+  "room_add.php": 60,
+  "room_img_modify.php": 60,
+  "room_modify.php": 60,
+  "customer_list.php": 40
+}
