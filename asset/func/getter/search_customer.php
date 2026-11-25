@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 header("Content-Type: application/json");
 

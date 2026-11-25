@@ -1,8 +1,11 @@
-<?php
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/customer_add.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_file.php");
-?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php"); ?>
+
+<div class="grow">
+  <?php
+  include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/customer_add.php");
+  require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_file.php");
+  ?>
+</div>
 
 
 <script>
@@ -24,6 +27,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_f
 
       let option = document.createElement("option");
       option.textContent = "Select nationality"
+      option.value = -1;
       countriesSelect.append(option);
 
       // Add rest of countries to the selector

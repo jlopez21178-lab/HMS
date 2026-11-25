@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `004_hotel`;
 
 */
 
-function getConnection(): mysqli
+function get_connection(): mysqli
 {
 
   // $localhost = false;

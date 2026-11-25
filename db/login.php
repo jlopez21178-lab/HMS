@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 $not_found = "";
 $email = $_POST["email"] ?? "";
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   {
     $file = $_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/log/user_entry.txt";
     $handler = fopen($file, "a");
-    $content = date("[Y-m-d H:i:s]") . " " . $_SESSION["user_id"]  . ":" . $_SESSION["user_role"] . ":" . $_SESSION["user_level_role"] . ":" . (($worker) ? ($_SESSION["user_workplace"]) : "") . "\n";
+    $content = date("[Y-m-d H:i:s]") . " " . $_SESSION["user_id"]  . ":" . $_SESSION["user_role"] . ":" . $_SESSION["user_role_level"] . ":" . (($worker) ? ($_SESSION["user_workplace"]) : "") . "\n";
     fwrite($handler, $content);
   }
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
       $_SESSION["user_role"] = "customer";
       $_SESSION["user_id"] = $user["customer_id"];
-      $_SESSION["user_level_role"] = -1;
+      $_SESSION["user_role_level"] = -1;
       addUserLog();
       move_to("/student004/hotel/index.php");
     } else {
@@ -70,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_id"] = $worker["worker_id"];
         $_SESSION["user_workplace"] = $worker["works_at"];
         $_SESSION["user_role_level"] = $worker["role_level"];
-
         addUserLog(true);
         move_to($homePath);
       } else {

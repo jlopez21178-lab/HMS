@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 // SQL statement
 $stmt = $conn->prepare("UPDATE `004_customer`
@@ -16,18 +16,18 @@ $stmt = $conn->prepare("UPDATE `004_customer`
                         WHERE customer_id = ?");
 // Valores
 $stmt->bind_param(
-  // i - integer - customer_id
-  // s - textos/fechas - lo demas
-  "sssssssi",
-  $_GET["full_name"],
-  $_GET["phone"],
-  $_GET["email"],
-  $_GET["nationality"],
-  $_GET["identity_number"],
-  $_GET["birthdate"],
-  $_GET["id_expire_date"],
-  $_GET["customer_id"]
-);
+      // s - textos/fechas 
+      "ssssssssi",
+      $full_name,
+      $phone,
+      $email,
+      $nationality,
+      $document,
+      $identity_number,
+      $birthdate,
+      $expire_date,
+      $customer_id
+    );
 
 // Ejecutar sql
 $executed = $stmt->execute();

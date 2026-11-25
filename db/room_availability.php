@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_room.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 // GET variables
 $date_in = $_GET["date_in"];

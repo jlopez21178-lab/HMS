@@ -16,8 +16,7 @@ function checkNavAccess($list)
 
     if ($page_permit_level <= $_SESSION["user_role_level"]) { ?>
       <a href="<?= $form_path . "/" . $file ?>"> <?= $name ?></a>
-<?php
-    }
+<?php }
   }
 }
 ?>

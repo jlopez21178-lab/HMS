@@ -1,8 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_reservation_list.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 $type = "";
 $param = [];
@@ -21,13 +20,12 @@ $date_out = $_POST["date_out"] ?? "";
 
 switch ($_POST["quick_btn"] ?? "") {
   case "checkin":
-    $sql .= " AND res.status  = 'ongoing' AND res.date_in = ?";
+    $sql .= " AND res.status  = 'pendent' AND res.date_in = ?";
     $type .= "s";
     $param[] = date("Y-m-d");
     break;
   case "ongoing":
     $sql .= " AND res.status  = 'ongoing'";
-
     break;
   case "checkout":
     $sql .= " AND res.status  = 'ongoing' AND res.date_out = ?";
@@ -42,7 +40,7 @@ switch ($_POST["quick_btn"] ?? "") {
     }
 
     if ($date_out) {
-      $sql .= ' AND res.date_in = ?';
+      $sql .= ' AND res.date_out = ?';
       $type .= "s";
       $param[] = $date_out;
     }
@@ -59,12 +57,13 @@ switch ($_POST["quick_btn"] ?? "") {
       $param[] =  $_POST["category_charged"];
     }
 
+    // TODO arreglar este desastre
     // si carga la pagina por primera vez no hay ningun status seleccionado por lo que ponemos de default las reservas en marcha
-    $status = $_POST["status"] ?? "ongoing";
+    $status = $_POST["status"] ?? ["ongoing"];
     $sql .= " AND res.status = ?";
     $type .= "s";
-    $param[] = $status;
-
+    // foreach ($status as $stat) $param[] = $stat;
+    $param[] = $status[0];
     break;
 }
 
@@ -82,10 +81,3 @@ if (!empty($param)) $stmt->bind_param($type, ...$param);
 $stmt->execute();
 $reservation = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 mysqli_close($conn);
-
-if (count($reservation) > 0) {
-  foreach ($reservation as $res)
-    show_reservation_list($res);
-} else {
-  echo "<tr><td colspan='10'>No reservation founded</td></tr>";
-}

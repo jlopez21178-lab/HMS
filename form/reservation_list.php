@@ -1,13 +1,16 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_list.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_reservation_list.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_category.php");
 
 /** @var array $category */
+/** @var array $reservation */
 ?>
 
 
 <div class="p-5 grow">
-  <form method="post" class="<?= $filter ?> flex-col">
+  <form method="post" class="<?= $filter ?> flex-col" action="">
     <div class="flex justify-between">
       <div class="flex gap-5">
         <button name="quick_btn" value="checkin" class="<?= $btn ?> bg-fuchsia-500/30 hover:bg-fuchsia-500/40">Check In</button>
@@ -17,49 +20,48 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
       <button id="advanced-filters-btn" type="button">Show advanced filters</button>
     </div>
 
-    <!-- TODO que los selectores se puedan mostrar o ocultar -->
     <div id="advanced-filters">
       <div class="flex justify-between">
         <div class="flex gap-5">
           <label>
             <p>Check in:</p>
-            <input type="date" name="date_in" value="<?= $_POST["date_in"] ?? "" ?>">
+            <input type="date" name="date_in" value="<?= $date_in ?>">
           </label>
 
           <label>
             <p>Check out:</p>
-            <input type="date" name="date_out" value="<?= $date_out ?? "" ?>">
+            <input type="date" name="date_out" value="<?= $date_out  ?>">
           </label>
           <label>
             <p>Category given</p>
             <select name="category_given">
               <option></option>
-              <?= displayCategoryList($category, $_POST["category_given"]) ?>
+              <?= display_category_list($_POST["category_given"]) ?>
             </select>
           </label>
           <label>
             <p>Category charged</p>
             <select name="category_charged">
               <option></option>
-              <?= displayCategoryList($category, $_POST["category_charged"]) ?>
+              <?= display_category_list($_POST["category_charged"]) ?>
             </select>
           </label>
 
           <section class="flex flex-col">
             <label>
-              <input type="radio" name="status" value="pendent" <?= isset($_POST["status"]) && $_POST["status"] == "pendent" ? "checked" : "" ?>>
+              <input type="checkbox" name="status[]" value="pendent" <?= isset($_POST["status"]) && $_POST["status"] == "pendent" ? "checked" : "" ?>>
               Pendent
             </label>
             <label>
-              <input type="radio" name="status" value="ongoing" <?= isset($_POST["status"]) && $_POST["status"] == "ongoing" ? "checked" : "" ?>>
+              <input type="checkbox" name="status[]" value="ongoing" <?= !isset($_POST["status"]) || $_POST["status"] == "ongoing" ? "checked" : "" ?>>
               Ongoing
             </label>
             <label>
-              <input type="radio" name="status" value="finished" <?= isset($_POST["status"]) && $_POST["status"] == "finished" ? "checked" : "" ?>>
+              <input type="checkbox" name="status[]" value="finished" <?= isset($_POST["status"]) && $_POST["status"] == "finished" ? "checked" : "" ?>>
               Finished
             </label>
             <label>
-              <input type="radio" name="status" value="eliminated" <?= isset($_POST["status"]) && $_POST["status"] == "eliminated" ? "checked" : "" ?>>
+              <input type="checkbox" name="status[]" value="eliminated" <?= isset($_POST["status"]) && $_POST["status"] == "eliminated" ? "checked" : "" ?>>
               Eliminated
             </label>
           </section>
@@ -85,7 +87,14 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
       </tr>
     </thead>
     <tbody>
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_list.php"); ?>
+      <?php if (count($reservation) > 0) {
+        foreach ($reservation as $res)
+          show_reservation_list($res);
+      } else { ?>
+        <tr>
+          <td rowspan='5' colspan='10'>No reservation founded</td>
+        </tr>
+      <?php } ?>
     </tbody>
   </table>
 </div>
@@ -97,8 +106,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
   filters.hidden = true;
 
   showFilters.addEventListener("click", () => {
-    filters.hidden = !filters.hidden
+    filters.hidden = !filters.hidden;
   });
 </script>
 
-<?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php"); ?>
+<!-- <?php require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php"); ?> -->

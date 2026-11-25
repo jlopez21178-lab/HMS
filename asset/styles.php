@@ -42,8 +42,8 @@ $error_text = "text-red-500/50";
 
 // comando sql ejecutado correctamente / error
 $execute_container = "flex flex-col justify-center items-center grow";
-$execute_correct = "p-15 bg-green-400/30 rounded-lg ";
-$execute_error = "p-15 bg-red-400/30 rounded-lg";
+$execute_correct = "p-5 bg-green-400/30 rounded-lg text-center ";
+$execute_error = "p-5 bg-red-400/30 rounded-lg text-center";
 
 // menu lateral
 $menu = "bg-purple-50 flex flex-col p-5 w-auto sticky top-[100px] h-[calc(100vh-100px)] overflow-y-auto min-w-max  [&>details]:mb-3 [&>*>a]:block";

@@ -9,7 +9,7 @@ $identity_number = $_POST["identity_number"] ?? "";
 $birthdate = $_POST["birthdate"] ?? "";
 $expire_date = $_POST["id_expire_date"] ?? "";
 
- require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_file.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/customer_file.php");
 ?>
 
 <script>
@@ -60,8 +60,7 @@ $expire_date = $_POST["id_expire_date"] ?? "";
   // Boton para aceptar los canvios
   const acceptBtn = document.getElementById("acceptBtn");
   acceptBtn.textContent = "Save and update";
-  acceptBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "/student004/hotel/db/customer_update.php?customer_id=<?= $_GET["customer_id"] ?> &" + (new URLSearchParams(new FormData(form))).toString();
+  acceptBtn.addEventListener("click", () => {
+    form.submit();
   })
 </script>

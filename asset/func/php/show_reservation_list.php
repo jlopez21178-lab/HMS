@@ -6,7 +6,7 @@
     // calcular total dias
     $date_in = new DateTime($res["date_in"]);
     $date_out = new DateTime($res["date_out"]);
-    $days = $date_in->diff($date_out);
+    $days = $date_in->diff($date_out)->d;
 
     $statusStyle = "rounded-lg ";
     $statusStyle .= match ($res["status"]) {
@@ -28,9 +28,9 @@
      <td><?= ($res["room_number"] ?? "") ?></td>
      <td><?= $res["date_in"] ?></td>
      <td><?= $res["date_out"] ?></td>
-     <td><?= $days->days ?></td>
+     <td><?= $days ?></td>
      <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
      <td></td>
-     <td><a href="" class="<?= $action_button ?>">Edit</a></td>
+     <td><a href="/student004/hotel/form/reservation_modify.php?reservation_id=<?= $res["reservation_id"] ?>" class="<?= $action_button ?>">Edit</a></td>
    </tr>
  <?php } ?>

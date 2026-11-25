@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/template/bo_header.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 
 $stmt = $conn->prepare("INSERT INTO `004_room`(hotel_id, room_number, category_id) VALUES (?,?,?)");

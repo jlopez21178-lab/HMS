@@ -31,7 +31,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_cat
         <p>Category:</p>
         <select name="category_id" id="category_id" class="grow" required>
           <option>Select a category</option>
-          <?= displayCategoryList($category) ?>
+          <?= display_category_list() ?>
         </select>
       </label>
     </section>

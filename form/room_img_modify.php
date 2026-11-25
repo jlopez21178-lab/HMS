@@ -25,7 +25,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/room_img_add.php");
           <p>Category:</p>
           <select name="category_id">
             <option value="-1">Select category</option>
-            <?= displayCategoryList($category) ?>
+            <?= display_category_list() ?>
           </select>
         </label>
         <p class="<?= $error_text ?>"><?= $error["category_id"] ?></p>

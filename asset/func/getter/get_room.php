@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 $stmt = $conn->prepare("SELECT room.*, hotel.city, cat.category_code 
                         FROM `004_room` AS room

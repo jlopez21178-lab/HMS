@@ -22,7 +22,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurelia Grand Hotel</title>
-  <link rel="icon" href="/student004/hotel/img/aurelia-grand-hotel-logo.png" type="image/png" />
+  <link rel="icon" href="/student004/hotel/asset/img/aurelia-grand-hotel-logo.svg" type="image/png" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
   </script>
 </head>
@@ -31,7 +31,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/styles.php");
   <header class="sticky top-0 z-30">
     <nav class="bg-black flex justify-between items-center p-5  shadow-lg shadow-purple-400 z-3">
       <div class="flex">
-        <img src="/student004/hotel/img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
+        <img src="/student004/hotel/asset/img/aurelia-grand-hotel-logo.svg" type="image/svg" alt="logo web" class="max-w-15 text-shadow-purple-300 text-shadow-lg" />
         <form action="" method="POST">
           <select name="lenguage" id="lenguage" class="text-white bg-black" onchange="this.form.submit()">
             <?php foreach ($lenguages as $leng) { ?>

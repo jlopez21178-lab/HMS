@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/header.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
 
-$conn = getConnection();
+$conn = get_connection();
 
 $stmt = $conn->prepare('DELETE FROM `004_room` WHERE room_id = ?');
 $stmt->bind_param("i", $_GET["room_id"]);
