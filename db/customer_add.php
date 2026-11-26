@@ -9,7 +9,7 @@ $nationality = $_POST["nationality"] ?? "";
 $document = $_POST["document"] ?? "";
 $identity_number = $_POST["identity_number"] ?? "";
 $birthdate = $_POST["birthdate"] ?? "";
-$expire_date = $_POST["id_expire_date"] ?? "";
+$expire_date = $_POST["expire_date"] ?? "";
 
 $error = [];
 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($error)) {
     // SQL statement
-    $stmt = $conn->prepare("INSERT INTO `004_customer`(full_name, phone, email, nationality, document, identity_number, birthdate, id_expire_date
+    $stmt = $conn->prepare("INSERT INTO `004_customer`(full_name, phone, email, nationality, document, identity_number, birthdate, expire_date
                         VALUES (?,?,?,?,?,?,?,?)");
     // Valores
     $stmt->bind_param(

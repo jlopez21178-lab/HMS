@@ -12,7 +12,7 @@ $stmt = $conn->prepare("UPDATE `004_customer`
                             nationality = ?,
                             identity_number = ?,
                             birthdate = ?,
-                            id_expire_date = ?
+                            expire_date = ?
                         WHERE customer_id = ?");
 // Valores
 $stmt->bind_param(

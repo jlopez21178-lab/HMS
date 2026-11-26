@@ -10,6 +10,7 @@ $room = $_POST["room_id"] ?? $reservation["room_id"] ?? -1;
 
 $stmt = $conn->prepare("UPDATE `004_reservation`
                         SET customer_id = ?, 
-                            room_id = ?");
+                            room_id = ?
+                        WHERE reservation_id = ?");
 
 $stmt->bind_param("ii", $customer_id, $room);

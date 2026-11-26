@@ -77,9 +77,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_update.php
       <!-- TODO que no muestre el id  del usuario -->
       <label>
         <p>Customer:</p>
-        <input list="customer-list" id="customer-searcher" name="customer_id" value="<?= $reservation["customer_id"] ?>" placeholder="Search customer" disabled>
-        <button type="button" id="changeCustomerBtn" class="<?= $btn ?> ">Change customer</button>
+        <input list="customer-list" id="customer-searcher" name="customer_id" value="<?= $reservation["customer_id"] ?>" placeholder="Search customer" class="rounded-lg bg-olive-500/30" disabled>
+        <a href="<?= $form_path . "/customer_modify.php?customer_id=" . $reservation["customer_id"] ?>" id="modifyCustomerFile" class="<?= $btn ?> bg-purple-300/30">Modify customer</button>
       </label>
+      <button type="button" id="changeCustomerBtn" class="<?= $btn ?> bg-olive-500/30 w-fit">Change customer</button>
       <div>
         <a href="/student004/hotel/form/customer_add.php" class="<?= $btn_accept ?>">New customer</a>
       </div>
@@ -153,6 +154,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/db/reservation_update.php
   const changeCustomerBtn = document.getElementById("changeCustomerBtn");
   changeCustomerBtn.addEventListener("click", () => {
     customerSearcher.disabled = !customerSearcher.disabled;
+    customerSearcher.classList.toggle("bg-olive-500/30");
+    customerSearcher.classList.toggle("bg-purple-500/40");
     changeCustomerBtn.textContent = customerSearcher.disabled ? "Change customer" : "Accept customer";
   });
 

@@ -9,6 +9,10 @@ $conn = get_connection();
 $date_in = $_GET["date_in"];
 $date_out = $_GET["date_out"];
 
+
+setcookie("date_in", $date_in, time() + 60 * 60 * 24 * 30, "/");
+setcookie("date_out", $date_out, time() + 60 * 60 * 24 * 30, "/");
+
 $type = "ss";
 $param = [$date_out, $date_in];
 
@@ -38,9 +42,14 @@ $rooms = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 mysqli_close($conn);
 
+?>
+<section class='grow m-5 flex flex-col justify-center items-center gap-10'>
+  <?php if (count($rooms) > 0) {
+    foreach ($rooms as $room)  show_room($room);
+  } else {
+    echo "No rooms available";
+  } ?>
+</section>
 
-echo "<section class='grow m-5 flex flex-col justify-center items-center gap-10'>";
-foreach ($rooms as $room)  show_room($room);
-echo "</section>";
-
+<?php
 require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/template/footer.php");

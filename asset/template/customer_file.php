@@ -1,3 +1,4 @@
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/show_countries_list.php"); ?>
 <div class="<?= $form_container ?>">
   <form id="form" class=" <?= $form ?>" method="post">
     <h1 class="text-3xl">Customer file</h1>
@@ -27,15 +28,17 @@
       <section class="<?= $section ?>">
         <label>
           <p>Nationality:</p>
-          <select id="nationality" name="nationality"></select>
+          <select id="nationality" name="nationality">
+            <?= display_countries_list($nationality) ?>
+          </select>
         </label>
         <?php if (isset($error["nationality"])) { ?> <div class="<?= $error_text ?>"><?= $error["nationality"]  ?></div> <?php } ?>
         <label>
           <p>Document:</p>
           <select name=" document">
             <option value="-1">Select document type</option>
-            <option value="identity_card" <?= $document == "identity_card" ? "checked" : "" ?>>DNI</option>
-            <option value="passport" <?= $document == "passport" ? "checked" : "" ?>>Passport</option>
+            <option value="identity_card" <?= ($document == "identity_card") ? "checked" : "" ?>>Identity card</option>
+            <option value="passport" <?= ($document == "passport") ? "checked" : "" ?>>Passport</option>
             <option value="driving_license" <?= $document == "driving_license" ? "checked" : "" ?>>Driving licence</option>
           </select>
         </label>
@@ -52,7 +55,7 @@
         <?php if (isset($error["birthdate"])) { ?> <div class="<?= $error_text ?>"><?= $error["birthdate"]  ?></div> <?php } ?>
         <label>
           <p>Expiracy:</p>
-          <input type="date" name="expire_date">
+          <input type="date" name="expire_date" value="<?= $expire_date ?>">
         </label>
         <?php if (isset($error["expire_date"])) { ?> <div class="<?= $error_text ?>"><?= $error["expire_date"]  ?></div> <?php } ?>
       </section>
