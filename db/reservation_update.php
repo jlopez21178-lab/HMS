@@ -14,8 +14,6 @@ $reservation_id = $_POST["reservation_id"] ?? $reservation["reservation_id"] ?? 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $executed = false;
     $affected_rows = 0;
-echo isset($_POST["save_exit"]) . "-";
-print_r($_POST);
 
     if (!$customer_id) {
         $error["customer_id"] = "A reservation can't have no customer associated";

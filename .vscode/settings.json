@@ -32,6 +32,22 @@
       "folderPath": "hotel\\func\\php",
       "color": "foldercolorizer.color_00ffd7",
       "badge": "ph"
+    },
+    {
+      "folderPath": "hotel\\asset\\func\\php\\",
+      "color": "foldercolorizer.color_0087d7"
+    },
+    {
+      "folderPath": "hotel\\asset\\func\\getter\\",
+      "color": "foldercolorizer.color_afd7ff"
+    },
+    {
+      "folderPath": "hotel\\asset\\img\\",
+      "color": "foldercolorizer.color_00ffff"
+    },
+    {
+      "folderPath": "hotel\\asset\\template\\error\\",
+      "color": "foldercolorizer.color_ff0000"
     }
   ]
 }

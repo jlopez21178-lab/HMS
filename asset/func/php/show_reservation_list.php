@@ -2,6 +2,7 @@
   {
     global $table_row_data;
     global $action_button;
+    global $form_path;
 
     // calcular total dias
     $date_in = new DateTime($res["date_in"]);
@@ -31,6 +32,15 @@
      <td><?= $days ?></td>
      <td><?= $res["cat_code_given"] . " / " . $res["cat_code_charged"] ?></td>
      <td></td>
-     <td><a href="/student004/hotel/form/reservation_modify.php?reservation_id=<?= $res["reservation_id"] ?>" class="<?= $action_button ?>">Edit</a></td>
+     <td>
+       <div class="flex text-center align-center <?= $action_button ?>">
+         <details class="[&>a]:block open:[&>a]:border-t-1 open:[&>a]:border-purple-500/90">
+           <summary class="marker:text-purple-600">
+             <a href="<?= "$form_path/reservation_modify.php?reservation_id=$res[reservation_id]" ?>">Edit</a>
+           </summary>
+           <a href="<?= "$form_path/invoice.php?reservation_id=$res[reservation_id]" ?>">Invoice</a>
+         </details>
+       </div>
+     </td>
    </tr>
  <?php } ?>

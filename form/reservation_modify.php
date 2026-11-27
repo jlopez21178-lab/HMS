@@ -98,7 +98,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_ava
       <div class="<?= $btn_container ?>">
         <button id="cancel-btn" type="button" class="<?= $btn_cancel ?>">Cancel</button>
         <button id="save" class="<?= $btn_accept ?>">Save</button>
-        <button id="saveExit" name="save_exit" value="exit" class="<?= $btn_accept ?>">Save and exit</button>
+        <button id="saveExit" type="submit" name="save_exit" class="<?= $btn_accept ?>">Save and exit</button>
       </div>
     </form>
   </div>
@@ -173,11 +173,12 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_ava
   const roomBtn = document.getElementById("confirmRoomBtn");
   const roomSelector = document.getElementById("roomSelector");
 
-  roomSelected = "bg-red-500/50";
-  roomNotSelected = "border-purple-500/50";
+  const roomSelected = "bg-red-500/50";
+  const roomNotSelected = "border-purple-500/50";
 
   roomSelector.disabled = roomSelector.value != -1;
   roomSelector.className = `grow rounded-lg ${roomSelector.disabled ? "bg-olive-500/30" : "bg-purple-500/40"}`
+  roomBtn.textContent = roomSelector.disabled ? "Change room" : "Confirm room";
   roomBtn.className = `p-1 rounded-lg border-1 ${ roomSelector.disabled? roomSelected: roomNotSelected} `;
 
   roomBtn.addEventListener("click", () => {
@@ -190,9 +191,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/getter/get_ava
     roomBtn.classList.toggle(roomNotSelected);
   })
 
-  function sentForm(e) {
-    e.preventDefault()
-
+  function sentForm() {
     roomSelector.disabled = false;
     document.getElementById("form").submit();
   }
