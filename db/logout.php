@@ -1,5 +1,5 @@
 <?php
- require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
+ require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
 
 session_start();
 $_SESSION = [];

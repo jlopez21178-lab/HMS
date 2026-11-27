@@ -1,6 +1,6 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/db_connect.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/move_to.php");
 
 $conn = get_connection();
 
@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
       $_SESSION["user_role"] = "customer";
       $_SESSION["user_id"] = $user["customer_id"];
-      $_SESSION["user_role_level"] = -1;
       addUserLog();
       move_to("/student004/hotel/index.php");
     } else {

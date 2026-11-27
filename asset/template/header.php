@@ -2,6 +2,8 @@
 session_start();
 // iniciar el rol del usuario a guest si no esta inciado
 if (!isset($_SESSION["user_role"])) $_SESSION["user_role"] = "guest";
+if (!isset($_SESSION["user_role_level"])) $_SESSION["user_role_level"] = 0;
+require($_SERVER["DOCUMENT_ROOT"] . "/student004/hotel/asset/func/php/role_check.php");
 
 $lenguages = ["ES", "CAT", "EN", "DE"];
 
